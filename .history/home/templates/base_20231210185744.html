@@ -3,7 +3,7 @@
 {% load static %}
 
 <head>
-    <title>Jimbo's Books</title>
+    <title>Jimbo's Burgers</title>
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
@@ -16,7 +16,7 @@
         integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     
 </head>
 
@@ -26,7 +26,7 @@
     <main class="flex-shrink-0">
         <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom border-lg fixed-top">
             <div class="container-fluid">
-                <a class="navbar-brand" href=""><img id= "logo" src="" alt=""></a>
+                <a class="navbar-brand" href=""><img id= "logo" src="" alt="jimbos burger logo"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
                     aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -37,7 +37,7 @@
                             <a class="nav-link active" aria-current="page" href="">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="">Menu</a>
+                            <a class="nav-link active" href="{% url 'menu' %}">Menu</a>
                         </li>
                         {% if user.is_staff %}
                         <li class="nav-item dropdown">

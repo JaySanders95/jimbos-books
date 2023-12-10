@@ -3,7 +3,7 @@
 {% load static %}
 
 <head>
-    <title>Jimbo's Books</title>
+    <title>Jimbo's Burgers</title>
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
@@ -16,7 +16,7 @@
         integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     
 </head>
 
@@ -26,7 +26,7 @@
     <main class="flex-shrink-0">
         <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom border-lg fixed-top">
             <div class="container-fluid">
-                <a class="navbar-brand" href=""><img id= "logo" src="" alt=""></a>
+                <a class="navbar-brand" href="{% url 'home' %}"><img id= "logo" src="{% static 'logo_image/logo-resize.png' %}" alt="jimbos burger logo"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
                     aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -34,10 +34,10 @@
                 <div class="collapse navbar-collapse" id="navbarText">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="">Home</a>
+                            <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="">Menu</a>
+                            <a class="nav-link active" href="{% url 'menu' %}">Menu</a>
                         </li>
                         {% if user.is_staff %}
                         <li class="nav-item dropdown">
@@ -45,9 +45,9 @@
                                 Booking Settings
                             </a>
                             <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarDarkDropdownMenuLink">
-                            <li><a class="dropdown-item" href="">Bookings</a></li>
-                            <li><a class="dropdown-item" href="">Create Booking</a></li>
-                            <li><a class="dropdown-item" href="">log out</a></li>
+                            <li><a class="dropdown-item" href="{% url 'my_bookings' %}">Bookings</a></li>
+                            <li><a class="dropdown-item" href="{% url 'booking_add' %}">Create Booking</a></li>
+                            <li><a class="dropdown-item" href="{% url 'account_logout' %}">log out</a></li>
                             </ul>
                         </li>
                         {% elif user.is_authenticated %}
@@ -56,17 +56,17 @@
                                 My account
                             </a>
                             <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarDarkDropdownMenuLink">
-                            <li><a class="dropdown-item" href="">My bookings</a></li>
-                            <li><a class="dropdown-item" href="">Book a table</a></li>
-                            <li><a class="dropdown-item" href="">log out</a></li>
+                            <li><a class="dropdown-item" href="{% url 'my_bookings' %}">My bookings</a></li>
+                            <li><a class="dropdown-item" href="{% url 'booking_add' %}">Book a table</a></li>
+                            <li><a class="dropdown-item" href="{% url 'account_logout' %}">log out</a></li>
                             </ul>
                         </li>
                         {% else %}
                         <li class="nav-item">
-                            <a class="nav-link" href="">Login</a>
+                            <a class="nav-link" href="{% url 'account_login' %}">Login</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="">Register</a>
+                            <a class="nav-link" href="{% url 'custom_signup' %}">Register</a>
                         </li>
 
 
