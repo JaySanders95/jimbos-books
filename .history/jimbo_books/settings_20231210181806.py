@@ -29,7 +29,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-jaysanders9-jimbosbooks-gbqjhdc1g76.ws-eu106.gitpod.io', 'jimbo-books.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['8000-jaysanders9-jimbosbooks-gbqjhdc1g76.ws-eu106.gitpod.io', 'JIMBO']
 
 
 # Application definition
