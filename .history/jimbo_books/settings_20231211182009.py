@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cloudinary',
     'home',
-    'allauth',
+        'allauth',
     'allauth.account',
     'allauth.socialaccount',
 ]
@@ -76,10 +76,6 @@ TEMPLATES = [
         },
     },
 ]
-
-
-
-
 
 WSGI_APPLICATION = 'jimbo_books.wsgi.application'
 

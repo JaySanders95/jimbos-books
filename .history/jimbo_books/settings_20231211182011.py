@@ -77,10 +77,6 @@ TEMPLATES = [
     },
 ]
 
-
-
-
-
 WSGI_APPLICATION = 'jimbo_books.wsgi.application'
 
 
