@@ -32,12 +32,12 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarText">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 ">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 text-light">
                         <li class="nav-item">
-                            <a class="nav-link text-light" aria-current="page" href="">Home</a>
+                            <a class="nav-link active" aria-current="page" href="">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light" href="">Books</a>
+                            <a class="nav-link active" href="">Books</a>
                         </li>
                         {% if user.is_staff %}
                         <li class="nav-item dropdown">
@@ -45,9 +45,9 @@
                                 Booking Settings
                             </a>
                             <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarDarkDropdownMenuLink">
-                            <li><a class="dropdown-item text-light" href="">Staff settings</a></li>
-                            <li><a class="dropdown-item text-light" href="">Manage Orders</a></li>
-                            <li><a class="dropdown-item text-light" href="">log out</a></li>
+                            <li><a class="dropdown-item" href="">Staff settings</a></li>
+                            <li><a class="dropdown-item" href="">Manage Orders</a></li>
+                            <li><a class="dropdown-item" href="">log out</a></li>
                             </ul>
                         </li>
                         {% elif user.is_authenticated %}
@@ -56,17 +56,17 @@
                                 My account
                             </a>
                             <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarDarkDropdownMenuLink">
-                            <li><a class="dropdown-item text-light" href="">My Account</a></li>
-                            <li><a class="dropdown-item text-light" href="">My orders</a></li>
-                            <li><a class="dropdown-item text-light" href="">log out</a></li>
+                            <li><a class="dropdown-item" href="">My Account</a></li>
+                            <li><a class="dropdown-item" href="">My orders</a></li>
+                            <li><a class="dropdown-item" href="">log out</a></li>
                             </ul>
                         </li>
                         {% else %}
                         <li class="nav-item">
-                            <a class="nav-link text-light" href="">Login</a>
+                            <a class="nav-link" href="">Login</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light" href="">Register</a>
+                            <a class="nav-link" href="">Register</a>
                         </li>
 
 
@@ -95,13 +95,13 @@
 
         
     <!-- Footer -->
-    <footer class="footer mt-auto py-3 bg-dark border-top border-lg">
-        <p class="m-0 text-center text-light ">Made by Jimbo</p>
-        <p class="m-0 text-center text-light">
-            <a href="https://www.facebook.com" class="icon-block text-light" target="_blank"><i class="fab fa-facebook-square ms-3"></i></a>
-            <a href="https://www.twitter.com" class="icon-block text-light" target="_blank"><i class="fab fa-twitter-square ms-3"></i></a>
-            <a href="https://www.instagram.com" class="icon-block text-light" target="_blank"><i class="fab fa-instagram-square ms-3"></i></a>
-            <a href="https://www.youtube.com" class="icon-block text-light" target="_blank"><i class="fab fa-youtube-square ms-3"></i></a>
+    <footer class="footer mt-auto py-3 bg-light border-top border-lg">
+        <p class="m-0 text-center text-black">Made by Jimbo</p>
+        <p class="m-0 text-center text-black">
+            <a href="https://www.facebook.com" class="icon-block" target="_blank"><i class="fab fa-facebook-square ms-3"></i></a>
+            <a href="https://www.twitter.com" class="icon-block" target="_blank"><i class="fab fa-twitter-square ms-3"></i></a>
+            <a href="https://www.instagram.com" class="icon-block" target="_blank"><i class="fab fa-instagram-square ms-3"></i></a>
+            <a href="https://www.youtube.com" class="icon-block" target="_blank"><i class="fab fa-youtube-square ms-3"></i></a>
         </p>
     </footer>
     <script>
