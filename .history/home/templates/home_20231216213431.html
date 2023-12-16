@@ -4,7 +4,10 @@
 
 {% block content %}
     <h1>Welcome to the Home page!</h1>
-        {% if books %}
+    
+{% endblock %}
+
+    {% if books %}
 
         {% for book in books %}
 
@@ -15,6 +18,3 @@
         {% endfor %}
 
     {% endif %}
-<p>ddddddddddddddd</p>
-{% endblock %}
-
