@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Books{% endblock %}
+
+{% block content %}
+    <h1>Welcome to the Books page!</h1>
+
+
+    {% for book in books %}
+        <div class="col-md-4">
+            <h2>{{ book.title }}</h2>
+            <p>Author: {{ book.author }}</p>
+            <p>Genre: {{ book.genre }}</p>
+            <p>Published: {{ book.publication_date }}</p>
+            <p>Price: <strong>£{{ book.price }}</strong></p>
+            <img src="{{ book.image.url }}" alt="{{ book.title }}">
+        </div>
+    {% endfor %}
+
+
+{% endblock %}

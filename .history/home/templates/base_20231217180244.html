@@ -16,7 +16,7 @@
         integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="">
     
 </head>
 
@@ -37,7 +37,7 @@
                             <a class="nav-link text-light" aria-current="page" href="">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light" href="{% url 'books' %}">Books</a>
+                            <a class="nav-link text-light" href="{% url 'books' %}}">Books</a>
                         </li>
                         {% if user.is_staff %}
                         <li class="nav-item dropdown">

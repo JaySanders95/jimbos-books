@@ -5,6 +5,5 @@ from .models import Book
 def home(request):
     return render(request, 'home.html')
 
-def books(request):
+def book_list(request):
     books = Book.objects.all()
-    return render(request, 'books.html', {'books': books})
