@@ -1,0 +1,26 @@
+{% load cart %}
+
+<div class="cart">
+    <h2>Cart</h2>
+
+    {% cart_total_quantity as total_quantity %}
+
+    {% if total_quantity == 0 %}
+        <p>Your cart is empty.</p>
+    {% else %}
+        <p>You have {{ total_quantity }} item(s) in your cart.</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+        </table>
+
+
+</div>
