@@ -42,14 +42,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'home',
-    'bag',
     'django.contrib.sites',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
     'cloudinary',
     'cloudinary_storage',
-    
+    'bag,'
 ]
 
 MIDDLEWARE = [
