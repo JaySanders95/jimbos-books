@@ -1,0 +1,1 @@
+def bag_contents

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}bag{% endblock %}
+
+{% block content %}
+    <div class="overlay"></div>
+
+
+    <div class="row">
+        <div class="col">
+            {% if bag_items %}
+                <div class="table-responsive">
+                    
+                </div>
+            {% else %}
+                <h2 class="">Your bag is empty!</h2>
+                <p>Click <a href="{% url 'home' %}"><strong>here</strong></a> to return to the shop.</p>
+            {% endif %}
+        </div>
+    </div>
+
+
+
+{% endblock %}
