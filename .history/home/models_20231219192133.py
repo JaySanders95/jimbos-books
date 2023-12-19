@@ -59,7 +59,7 @@ class Book(models.Model):
     price = models.DecimalField(max_digits=10, decimal_places=2)
     image = models.ImageField(upload_to='books/')
     synopsis = models.CharField(max_length=500, null=True, blank=True)
-    stock_available = models.PositiveIntegerField(default=99)
+    stock_available = models.PositiveIntegerField
 
     def __str__(self):
         return self.title
