@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Books{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="mt-4 md-4 text-center"></h1>
+    {% if books %}
+        <div class="row">
+    {% for book in books %}
+        <div class="container-fluid" style="margin-top: 15px;">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="book">
+                        <h2>{{ book.title }}</h2>
+                        <p>Author: {{ book.author }}</p>
+                        <p>Genre: {{ book.genre }}</p>
+                        <p>Published: {{ book.publication_date }}</p>
+                        <p>Price: <strong>£{{ book.price }}</strong></p>
+                        <img src="{{ book.image.url }}" alt="{{ book.title }}">
+                    </div>
+                </div>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

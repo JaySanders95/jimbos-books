@@ -8,8 +8,9 @@
         {% if books %}
             <div class="row">
                 {% for book in books %}
-                    <div class="col-md-3 ml-4">
+                    <div class="container-fluid" style="margin-top: 15px;">
                         <div class="row">
+                        <div class="col-md-3">
                             <div class="book">
                                 <h2>{{ book.title }}</h2>
                                 <p>Author: {{ book.author }}</p>
@@ -19,11 +20,8 @@
                                 <img src="{{ book.image.url }}" alt="{{ book.title }}">
                             </div>
                         </div>
-                    </div>  
-                {% endfor %} 
-            </div>
-        {% endif %}                
-            
+                </div>
+            {% endfor %}
     </div>
 
 {% endblock %}
