@@ -10,13 +10,13 @@
             <p>Genre: {{ book.genre }}</p>
             <p>Publication Date: {{ book.publication_date }}</p>
             <p>Price: {{ book.price }}</p>
-            {% if book.stock_available > 30 %}
-                <p class="text-success">in Stock!</p>
-            {% else %}
-                <p class="text-danger">Out of Stock!</p>
-            {% endif %}
+            {% if stock_available > 30 %}
+                <p class="text-green">in Stock!</p>
+            {% elif stock_available < 30  %}
+
+            <!-- Add other fields as needed -->
             <img src="{{ book.image.url }}" alt="{{ book.title }} Image">
-            <p>{{ book.synopsis }}</p>
+            <p>Synopsis: {{ book.synopsis }}</p>
         </div>
     </div>
 </div>
