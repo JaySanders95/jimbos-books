@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}Books{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1 class="mt-4 md-4 text-center"></h1>
+        {% if books %}
+            <div class="row">
+                {% for book in books %}
+                    <div class="col-md-4 col-lg-3 col-sm-5 col-xs-8">
+                        <div class="row">
+                            {% if book.pk %}
+                                <a href="{% url 'book_more_info' book_id=book.pk %}" style="text-decoration: none; color: inherit;">
+                                    <div class="book">
+                                        <img src="{{ book.image.url }}" alt="{{ book.title }}">
+                                        <h5>{{ book.title }}</h5>
+                                        <p>{{ book.author }}</p>
+                                        <p><strong>£{{ book.price }}</strong></p>
+                                    </div>
+                                </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

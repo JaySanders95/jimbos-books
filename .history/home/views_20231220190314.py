@@ -1,17 +1,13 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, ge
 from .models import Book
 
 
 def home(request):
-    return render(request, 'home.html')
-
-def books(request):
     books = Book.objects.all()
-    return render(request, 'books.html', {'books': books})
+    return render(request, 'home.html', {'books': books})
 
-def book_more_info(request, book_id):
-    book = get_object_or_404(Book, pk=book_id)
-    return render(request, 'book_more_info.html', {'book' : book})
+def book(request):
+    book = get_object_or_404
 
 
 # def add_to_cart(request, book_id):

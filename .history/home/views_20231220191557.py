@@ -9,7 +9,7 @@ def books(request):
     books = Book.objects.all()
     return render(request, 'books.html', {'books': books})
 
-def book_more_info(request, book_id):
+def book_more_info(request):
     book = get_object_or_404(Book, pk=book_id)
     return render(request, 'book_more_info.html', {'book' : book})
 

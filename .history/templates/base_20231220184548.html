@@ -34,7 +34,7 @@
                 <div class="collapse navbar-collapse" id="navbarText">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0 ">
                         <li class="nav-item">
-                            <a class="nav-link text-light" href="{% url 'books' %}">Books</a>
+                            <a class="nav-link text-light" href="{% url 'home' %}">Books</a>
                         </li>
                         <li class="list-inline-item">
                             <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-white{% endif %} nav-link" href="{% url 'view_bag' %}">
@@ -58,7 +58,7 @@
                             <ul class="dropdown-menu dropdown-menu-dark " aria-labelledby="navbarDarkDropdownMenuLink">
                             <li><a class="dropdown-item text-light" href="">Staff settings</a></li>
                             <li><a class="dropdown-item text-light" href="">Manage Orders</a></li>
-                            <li><a class="dropdown-item text-light" href="{% url 'account_logout' %}">log out</a></li>
+                            <li><a class="dropdown-item text-light" href="">log out</a></li>
                             </ul>
                         </li>
                         {% elif user.is_authenticated %}
