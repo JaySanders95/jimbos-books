@@ -8,12 +8,12 @@
         {% if books %}
             <div class="row">
                 {% for book in books %}
-                    <div class="col-md-4 col-lg-3 col-sm-5 col-xs-8">
+                    <div class="col-md-4 col-lg-3 col-sm-6 col-xs-">
                         <div class="row">
                             <div class="book">
-                                <img src="{{ book.image.url }}" alt="{{ book.title }}">
-                                <h5>{{ book.title }} </h5><p>{{ book.author }}</p>
+                                <h4>{{ book.title }} <p>by {{ book.author }}</p></h2>
                                 <p><strong>£{{ book.price }}</strong></p>
+                                <img src="{{ book.image.url }}" alt="{{ book.title }}">
                             </div>
                         </div>
                     </div>  
