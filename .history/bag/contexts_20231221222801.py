@@ -17,19 +17,18 @@ def bag_contents(request):
         bag_items.append({
             'item_id': item_id,
             'quantity' : quantity,
-            'book' : book,
 
         })
 
 
-    delivery = int(4)
+    delivery = total * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE)
 
     grand_total = delivery + total
 
     context = {
         'bag_items' : bag_items,
         'total' : total,
-        'book_count' : book_count,
+        'book_count' : product_count,
         'delivery' : delivery,
         'grand_total' : grand_total
     }

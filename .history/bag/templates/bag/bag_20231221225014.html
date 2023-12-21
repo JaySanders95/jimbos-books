@@ -26,29 +26,16 @@
                         </thead>
                         <tbody>
                             {% for item in bag_items %}
-                                <tr>
-                                    <td>{{ item.book.title }}</td>
-                                    <td>{{ item.quantity }}</td>
-                                    <td>{{ item.book.price }}</td>
-                                    <td>{{ item.total }}</td>
-                                    <td>
-                                        <a href="" class="btn btn-danger btn-sm">Remove</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td colspan="5">
-                                        <h6>Bag Total: £{{ total|floatformat:2 }}</h6>
-                                        <h6>Standard delivery: £{{ delivery|floatformat:2 }}</h6>
-                                        <h4>Grand Total: £{{ grand_total|floatformat:2 }}</h4>
-                                    </td>
-                                </tr>
-                            {% endfor %}
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
                         </tbody>
                     </table>
 
 
 
-                            
+                    {% endfor %}
                 {% else %}
                     <h2 class="">Your bag is empty!</h2>
                     <p>Click <a href="{% url 'home' %}"><strong>here</strong></a> to return to the shop.</p>

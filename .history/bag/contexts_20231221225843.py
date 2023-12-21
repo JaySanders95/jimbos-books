@@ -22,7 +22,7 @@ def bag_contents(request):
         })
 
 
-    delivery = int(4)
+    delivery = int(4.99)
 
     grand_total = delivery + total
 

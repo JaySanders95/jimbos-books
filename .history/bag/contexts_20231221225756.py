@@ -22,7 +22,7 @@ def bag_contents(request):
         })
 
 
-    delivery = int(4)
+    delivery = total * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE)
 
     grand_total = delivery + total
 
