@@ -1,0 +1,39 @@
+{% extends 'base.html' %} {% load static %} 
+
+{% block content %}
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-4 ">
+            <img src="{{ book.image.url }}" alt="{{ book.title }} Image" class="img-fluid">
+        </div>
+
+        <div class="col-md-8">
+            <h2 class="text-center">{{ book.title }}</h2>
+            <div class="book-details">
+                <p><strong>Author:</strong> {{ book.author }}</p>
+                <p><strong>Genre:</strong> {{ book.genre }}</p>
+                <p><strong>Publication Date:</strong> {{ book.publication_date }}</p>
+                <p><strong>Price:</strong> {{ book.price }}</p>
+                
+                {% if book.stock_available > 30 %}
+                    <p class="text-success">In Stock!</p>
+                {% else %}
+                    <p class="text-danger">Out of Stock!</p>
+                {% endif %}
+            </div>
+
+            <div class="synopsis">
+                <h5>Synopsis:</h5>
+                <p>{{ book.synopsis }}</p>
+            </div>
+
+            <div class="buttons">
+                <a href="{% url 'books' %}"> Continue Shopping</a>
+                <a href="">Add to basket</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
