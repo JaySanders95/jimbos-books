@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 
 # Create your views here.
 
@@ -18,4 +18,5 @@ def add_to_bag(request, item_id):
         bag[item_id] = quantity
 
     request.session['bag'] = bag
+    print(request.session['bag'])
     return redirect(redirect_url)
