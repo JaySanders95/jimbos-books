@@ -3,10 +3,6 @@ from django.conf import settings
 from django.shortcuts import get_object_or_404
 from home.models import Book 
 
-
-
-
-
 def bag_contents(request):
 
     bag_items = []
@@ -25,10 +21,8 @@ def bag_contents(request):
 
         })
 
-    if bag_items:
+
         delivery = int(4)
-    else:
-        delivery = 0
 
 
 

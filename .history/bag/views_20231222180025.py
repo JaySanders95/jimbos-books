@@ -20,3 +20,6 @@ def add_to_bag(request, item_id):
     request.session['bag'] = bag
     return redirect(redirect_url)
 
+
+def remove_from_bag(request, item_id):
+    
