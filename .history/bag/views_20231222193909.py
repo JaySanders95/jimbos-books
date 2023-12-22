@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
-from home.models import Book
 
 # Create your views here.
 
@@ -15,7 +14,7 @@ def add_to_bag(request, item_id):
     bag = request.session.get('bag', {})
 
     book = get_object_or_404(Book, pk=item_id)
-    if book.stock_available is not None and quantity > book.stock_available:
+    if book.stock.available is not None and quantity > book.stock_available:
         messages.error(request, 'We dont have the stock to fulfill your order!')
         return redirect(redirect_url)
 
