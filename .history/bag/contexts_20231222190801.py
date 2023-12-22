@@ -27,6 +27,7 @@ def bag_contents(request):
         book = get_object_or_404(Book, pk=item_id)
         total += quantity * book.price
         book_count += quantity
+        
         bag_items.append({
             'item_id': item_id,
             'quantity' : quantity,
@@ -39,7 +40,6 @@ def bag_contents(request):
     else:
         delivery = 0
 
-    
 
     grand_total = delivery + total
 

@@ -39,7 +39,7 @@ def bag_contents(request):
     else:
         delivery = 0
 
-    
+    messages.success(request, "Successfully added to bag")
 
     grand_total = delivery + total
 

@@ -3,7 +3,6 @@ from django.conf import settings
 from django.shortcuts import get_object_or_404
 from home.models import Book 
 from django.shortcuts import redirect
-from django.contrib import messages
 
 
 def remove_item_from_bag(request, item_id):
@@ -39,7 +38,7 @@ def bag_contents(request):
     else:
         delivery = 0
 
-    
+    messages.success
 
     grand_total = delivery + total
 

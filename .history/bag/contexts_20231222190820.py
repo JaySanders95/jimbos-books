@@ -27,6 +27,7 @@ def bag_contents(request):
         book = get_object_or_404(Book, pk=item_id)
         total += quantity * book.price
         book_count += quantity
+        messages.success(request, "Successfully added to bag")
         bag_items.append({
             'item_id': item_id,
             'quantity' : quantity,

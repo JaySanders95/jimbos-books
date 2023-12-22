@@ -39,7 +39,6 @@ def bag_contents(request):
     else:
         delivery = 0
 
-    
 
     grand_total = delivery + total
 
