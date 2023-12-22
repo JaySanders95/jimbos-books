@@ -9,8 +9,10 @@
 {% block content %}
 
 <h1>{% trans "Sign In" %}</h1>
-<p>{% blocktrans %}If you have not created an account yet, then please TEST TEST TEST
+{% else %}
+<p>{% blocktrans %}If you have not creafffffted an account yet, then please
 <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
+{% endif %}
 
 <form class="login" method="POST" action="{% url 'account_login' %}">
   {% csrf_token %}
