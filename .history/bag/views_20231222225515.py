@@ -27,7 +27,7 @@ def add_to_bag(request, item_id):
 
     request.session['bag'] = bag
 
-    messages.success(request, f'{book.title} added to bag.')
+    messages.success(request, f'{book.title} x {item_count} removed from your bag.')
 
     return redirect(redirect_url)
 

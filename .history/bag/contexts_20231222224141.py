@@ -13,7 +13,7 @@ def remove_item_from_bag(request, item_id):
         book = get_object_or_404(Book, pk=item_id)
         bag.pop(item_id)
         request.session['bag'] = bag
-        messages.warning(request, f'{book.title}(s) removed from your bag.')
+        messages.warning(request, f'{book.title} x f{} removed from your bag.')
     
         
     
