@@ -12,8 +12,8 @@ def remove_item_from_bag(request, item_id):
     if item_id in bag:
         bag.pop(item_id)
         request.session['bag'] = bag
-        messages.success(request, 'Item removed from your bag.')
     
+    messages.success(request, 'Item removed from your bag.')
         
     
     return redirect('view_bag')
