@@ -60,7 +60,7 @@ class Book(models.Model):
     image = models.ImageField(upload_to='books/')
     synopsis = models.CharField(max_length=500, null=True, blank=True)
     stock_available = models.PositiveIntegerField(default=99)
-    sku = models.CharField(max_length=254, null=True, blank=True) 
+    SKU
 
     def __str__(self):
         return self.title

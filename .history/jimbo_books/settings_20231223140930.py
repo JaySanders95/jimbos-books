@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'home',
     'bag',
-    'checkout',
+    'settings'
     'django.contrib.sites',
     'allauth',
     'allauth.account',
