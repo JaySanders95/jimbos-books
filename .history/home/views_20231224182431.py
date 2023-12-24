@@ -39,15 +39,5 @@ def book_more_info(request, book_id):
     return render(request, 'book_more_info.html', {'book' : book})
 
 
-def create_review(request):
-    if request.method == 'POST':
-        form = ReviewsForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-
-        return redirect('home')
-    else:
-        form = ReviewsForm()
-
-    return render(request, 'home.html', {'form': form})
+Class create_review()
     

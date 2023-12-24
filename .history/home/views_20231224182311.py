@@ -1,9 +1,7 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404
 from django.db.models import Q
 from django.views import View
-from .models import Book, Reviews
-from .forms import ReviewsForm
-
+from .models import Book
 
 
 def home(request):
@@ -39,15 +37,14 @@ def book_more_info(request, book_id):
     return render(request, 'book_more_info.html', {'book' : book})
 
 
-def create_review(request):
-    if request.method == 'POST':
-        form = ReviewsForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
+# def add_to_cart(request, book_id):
+#     book = get_object_or_404(Book, pk=book_id)
+#     customer = request.user.customer
+#     cart = customer.cart
 
-        return redirect('home')
-    else:
-        form = ReviewsForm()
+#     if request.method == 'POST':
+#         form = AddToCartForm(request.POST)
+#         if form.is_valid():
+#             quantity = form.cleaned_data['quantity']
 
-    return render(request, 'home.html', {'form': form})
-    
+#    

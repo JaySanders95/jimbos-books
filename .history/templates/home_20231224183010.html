@@ -1,0 +1,42 @@
+{% extends 'base.html' %} {% load static %} 
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            
+            <H3>LANDING PAGE - INCOMPLETE (WILL add more coming 28/12)<a class="nav-link text-dark" href="{% url 'books' %}">Books link</a></H3>
+
+            <th>How to make a cup of tea</th>
+            <tr><br>
+                <td>1. Get your Tetleys tea bag, no Yorkshire shite.</tr><br>
+                <td>2. Boil your kettle and put sugar into your Everton mug.</tr><br>
+                <td>3. Add hot water and milk</tr><br>
+                <td>4. Stir with Teabag for 3 full clockwise motions</tr><br>
+                <td>5. Lob your Teabag out the window</tr><br>
+                <td>6. Pour your drink down the sink and make a coffee like a real man</tr><br>
+            </tr>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+
+        </div>
+    </div>
+    <div class="row">
+        <h2>Create a Review</h2>
+    
+        <form method="post" enctype="multipart/form-data">
+            
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Submit Review</button>
+        </form>
+    
+    </div>
+</div>
+
+{% endblock %}

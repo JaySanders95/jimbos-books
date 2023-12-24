@@ -49,5 +49,5 @@ def create_review(request):
     else:
         form = ReviewsForm()
 
-    return render(request, 'home.html', {'form': form})
+    
     

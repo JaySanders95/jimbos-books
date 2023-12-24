@@ -72,4 +72,4 @@ class Reviews(models.Model):
     review_body = models.CharField(max_length=500, null=False, blank=False)
     review_image = models.ImageField(upload_to='book_more_info/')
     rating = models.PositiveIntegerField(validators=[MinValueValidator(0), MaxValueValidator(5)], default=0, null=False, blank=False)
-    date_of_review = models.DateField(auto_now_add=True)
+    date = models.DateTimeField(auto_now_add=True)

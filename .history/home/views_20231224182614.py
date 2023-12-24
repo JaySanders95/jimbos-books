@@ -48,6 +48,4 @@ def create_review(request):
         return redirect('home')
     else:
         form = ReviewsForm()
-
-    return render(request, 'home.html', {'form': form})
     
