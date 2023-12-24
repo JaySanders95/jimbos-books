@@ -8,8 +8,4 @@ class ReviewsForm(forms.Form):
         fields = ['full-name', 'review_title',
                     'review_body', 'review_image', 
                     'rating']
-    def clean_rating(self):
-        rating = self.cleaned_data['rating']
-        if rating < 0 or rating > 5:
-            raise forms.ValidatingError("Rating must be between 0-5")
-        return rating
+    def clean_rating(self)

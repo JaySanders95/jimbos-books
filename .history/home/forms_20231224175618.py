@@ -10,6 +10,4 @@ class ReviewsForm(forms.Form):
                     'rating']
     def clean_rating(self):
         rating = self.cleaned_data['rating']
-        if rating < 0 or rating > 5:
-            raise forms.ValidatingError("Rating must be between 0-5")
-        return rating
+        if rating < 0 or 

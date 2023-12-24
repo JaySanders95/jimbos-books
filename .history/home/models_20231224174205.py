@@ -2,7 +2,6 @@ from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 from django_countries.fields import CountryField
-from django.core.validators import MaxValueValidator, MinValueValidator
 
 # Create your models here.
 
@@ -67,8 +66,5 @@ class Book(models.Model):
         return self.title
 
 class Reviews(models.Model):
-    full_name = models.CharField(max_length=30, null=False, blank=False)
-    review_title = models.CharField(max_length=50, null=False, blank=False)
-    review_body = models.CharField(max_length=500, null=False, blank=False)
-    review_image = models.ImageField(upload_to='book_more_info/')
-    rating = models.PositiveIntegerField(validators=[MinValueValidator(0), MaxValueValidator(5)], default=0, null=False, blank=False)
+    full_name = models.CharField(max_length=30, null=False, null=False),
+    review_title = models.CharField()
