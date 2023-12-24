@@ -71,7 +71,7 @@
                     <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
                 </fieldset>
 
-                <fieldset class="px-3 mt-4">
+                <!-- <fieldset class="px-3 mt-4">
                     <legend class="fieldset-label small text-black px-2 w-auto">Card Details</legend>
                     <div class="mb-3">
                         <label for="card-number" class="form-label">Card Number</label>
@@ -87,7 +87,7 @@
                             <input type="text" id="card-cvc" class="form-control" placeholder="123">
                         </div>
                     </div>
-                </fieldset>
+                </fieldset> -->
 
                 <div class="submit-button mt-4">
                     <a href="#" class="btn btn-secondary mr-2"><span>Go back</span></a>
@@ -105,21 +105,21 @@
     var elements = stripe.elements();
     var style = {
         base: {
-            color: '#000',
-            fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
-            fontSmoothing: 'antialiased',
-            fontSize: '16px',
-            '::placeholder': {
-                color: '#aab7c4'
+                color: '#000',
+                fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+                fontSmoothing: 'antialiased',
+                fontSize: '16px',
+                '::placeholder': {
+                    color: '#aab7c4'
+                }
+            },
+            invalid: {
+                color: '#dc3545',
+                iconColor: '#dc3545'
             }
-        },
-        invalid: {
-            color: '#dc3545',
-            iconColor: '#dc3545'
-        }
-    };
-    var card = elements.create('card', {style: style});
-    card.mount('#card-element');
+        };
+        var card = elements.create('card', {style: style});
+        card.mount('#card-element');
 </script>
 
 {% endblock %}

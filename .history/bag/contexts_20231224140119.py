@@ -30,13 +30,12 @@ def bag_contents(request):
     for item_id, quantity in bag.items():
         book = get_object_or_404(Book, pk=item_id)
         total += quantity * book.price
-        single_total = quantity * book.price
+        single
         book_count += quantity
         bag_items.append({
             'item_id': item_id,
             'quantity' : quantity,
             'book' : book,
-            'total' : total
 
         })
 
