@@ -4,13 +4,10 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <h2>Confirm Deletion</h2>
+            <h2>Delete Book</h2>
             <p>Are you sure you want to delete the book '{{ book.title }}' by {{ book.author }}?</p>
-            <form method="post" action="{% url 'delete_books' book.id %}">
-                {% csrf_token %}
-                <button type="submit">Delete</button>
-                <a href="{% url 'view_books' %}">Cancel</a>
-            </form>
+            <a href="{% url 'defensive_delete' book.id %}">Delete</a>
+            <a href="{% url 'view_books' %}">Cancel</a>
         </div>
     </div>
 </div>

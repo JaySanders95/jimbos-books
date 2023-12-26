@@ -91,11 +91,11 @@ def delete_books(request, book_id):
     return render(request, 'delete_books.html', {'book': book})
 
 
-# @user_passes_test(is_staff)
-# def defensive_delete(request, book_id):
-#     book = get_object_or_404(Book, pk=book_id)
+@user_passes_test(is_staff)
+def defensive_delete(request, book_id):
+    book = get_object_or_404(Book, pk=book_id)
 
-#     return render(request, 'defensive_delete.html', {'book': book})
+    return render(request, 'defensive_delete.html', {'book': book})
 
 
 @user_passes_test(is_staff)

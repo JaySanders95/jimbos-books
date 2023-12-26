@@ -9,7 +9,9 @@
                 {% for book in books %}
                     <li>
                         {{ book.title }} by {{ book.author }}
-                        <form method="post" action="{% url 'modify_books' book.id %}">
+                        <!-- Add your form fields and placeholders for modification here -->
+                        <!-- Example: -->
+                        <form method="post" action="{% url 'modify_books_action' book.id %}">
                             {% csrf_token %}
                             <label for="modified_title">Modified Title:</label>
                             <input type="text" name="modified_title" value="{{ book.title }}">

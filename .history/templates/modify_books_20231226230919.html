@@ -1,0 +1,22 @@
+{% extends 'staff_settings.html' %}
+
+{% block settings_content %}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h2>Modify Book</h2>
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit">Update Book</button>
+                </form>
+
+                <form method="post" action="{% url 'delete_books' book.id %}" style="margin-top: 10px;">
+                    {% csrf_token %}
+                    <button type="submit">Delete Book</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

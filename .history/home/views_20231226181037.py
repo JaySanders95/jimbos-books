@@ -66,12 +66,11 @@ def modify_books(request, book_id):
         form = BookForm(request.POST, request.FILES, instance=book)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Book successfully modified.')
-            return redirect('view_books')
+            return render(request, 'book_modified.html', {'book' : book})
     else:
         form = BookForm(instance=book)
-
-    return render(request, 'modify_books.html', {'form': form, 'book': book, 'book_id': book_id})
+    
+    return render(request, 'modify_books.html', {'form' : form, 'book': book})
 
 
 @user_passes_test(is_staff)
@@ -80,22 +79,15 @@ def view_books(request):
     return render(request, 'view_books.html', {'books': books})
 
 
+@user_passes_test(is_staff)
 def delete_books(request, book_id):
     book = get_object_or_404(Book, pk=book_id)
 
     if request.method == 'POST':
-        # This means the deletion is confirmed
         book.delete()
         return render(request, 'book_deleted.html', {'book': book})
 
-    return render(request, 'delete_books.html', {'book': book})
-
-
-# @user_passes_test(is_staff)
-# def defensive_delete(request, book_id):
-#     book = get_object_or_404(Book, pk=book_id)
-
-#     return render(request, 'defensive_delete.html', {'book': book})
+    return render(request, 'defensive_delete.html', {'book': book})
 
 
 @user_passes_test(is_staff)
