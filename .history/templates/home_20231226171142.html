@@ -5,24 +5,20 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <!-- Main content of the page to be added later -->
+            <!-- Main content of the page -->
+
+            <!-- Reviews section at the bottom -->
             <div id="reviews-section">
                 <h3>Customer Reviews</h3>
                 <div id="review-container">
                     {% for review in reviews %}
+                        {% if image in review %}
+                            <div>{{ review.image}}</div>
                         <div class="review {% if forloop.first %}active{% endif %}">
-                            {% if review.review_image %}
-                                <img src="{{ review.review_image.url }}" alt="Review Image" class="review-image">
-                            {% endif %}
-                            <div class="review-text">
-                                <p>{{ review.review_body }}</p>
-                                <p>Date of Review: {{ review.date_of_review }}</p>
-                                <p>- {{ review.full_name }}</p>
-                            </div>
+                            <p>{{ review.review_body }}</p>
+                            <p> {{review.date_of_review}}</p>
+                            <p>- {{ review.full_name }}</p>
                         </div>
-                        {% if not forloop.last %}
-                            <hr class="review-divider">
-                        {% endif %}
                     {% endfor %}
                 </div>
             </div>

@@ -8,7 +8,7 @@ from .forms import ReviewsForm
 
 
 def home(request):
-    reviews = Reviews.objects.order_by('pk')
+        reviews = Reviews.objects.order_by('pk')
     return render(request, 'home.html', {'reviews': reviews})
 
 class BookListView(View):

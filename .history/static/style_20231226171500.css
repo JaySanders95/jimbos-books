@@ -23,27 +23,3 @@
     margin-bottom: 95px;
 }
 
-#reviews-section {
-    margin-top: 20px;
-}
-
-.review {
-    margin-bottom: 20px;
-    padding: 10px;
-    border: 1px solid #ccc;
-}
-
-.review-image {
-    max-width: 100%;
-    height: auto;
-}
-
-.review-text {
-    margin-top: 10px;
-}
-
-.review-divider {
-    margin: 20px 0;
-    border: none;
-    border-top: 1px solid #ccc;
-}
