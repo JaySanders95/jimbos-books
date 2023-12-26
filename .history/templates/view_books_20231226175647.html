@@ -1,0 +1,10 @@
+{% extends 'staff_settings.html' %}
+
+{% block settings_content %}
+    <h3>View All Books</h3>#
+    <ul>
+        {%for book in Books %}
+        <li>{book.title} by {book.author}</li>
+        
+    </ul>
+{% endblock %}
