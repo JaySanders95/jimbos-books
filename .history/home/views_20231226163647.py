@@ -39,10 +39,9 @@ def create_review(request):
         form = ReviewsForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            redirect('/')
 
     else:
         form = ReviewsForm()
 
-    return render(request, 'create_review.html', {'form': form})
+    return render(request, 'home.html', {'form': form})
     

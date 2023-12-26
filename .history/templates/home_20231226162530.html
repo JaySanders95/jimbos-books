@@ -33,5 +33,18 @@
         </div>
     </div>
 </div>
+{% load crispy_forms_tags %}
 
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h2>Create a Review</h2>
+
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                </form>
+            </div>
+        </div>
+    </div>
 {% endblock %}

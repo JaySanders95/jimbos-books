@@ -70,12 +70,12 @@ class Reviews(models.Model):
     full_name = models.CharField(max_length=30, null=False, blank=False)
     review_title = models.CharField(max_length=50, null=False, blank=False)
     review_body = models.CharField(max_length=500, null=False, blank=False)
-    review_image = models.ImageField(upload_to='book_more_info/', null=True, blank=True)
+    review_image = models.ImageField(upload_to='book_more_info/')
     rating = models.PositiveIntegerField(validators=[MinValueValidator(0), MaxValueValidator(5)], default=0, null=False, blank=False)
     date_of_review = models.DateField(auto_now_add=True)
 
     class Meta:
         verbose_name_plural = "reviews"
 
-    def __str__(self):
+      def __str__(self):
         return self.review_title

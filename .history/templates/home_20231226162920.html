@@ -33,5 +33,25 @@
         </div>
     </div>
 </div>
+{% load crispy_forms_tags %}
 
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h2>Create a Review</h2>
+
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+
+                    {{ reviews.full_name|as_crispy_field }}
+                    {{ reviews.review_title|as_crispy_field }}
+                    {{ reviews.review_body|as_crispy_field }}
+                    {{ reviews.review_image|as_crispy_field }}
+                    {{ reviews.rating|as_crispy_field }}
+
+                    <button type="submit">Submit Review</button>
+                </form>
+            </div>
+        </div>
+    </div>
 {% endblock %}

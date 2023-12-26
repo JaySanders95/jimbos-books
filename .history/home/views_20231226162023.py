@@ -28,6 +28,11 @@ class BookListView(View):
     
 
 
+# def books(request):
+#     template_name = 'books.html'
+
+#     books = Book.objects.all()
+#     return render(request, 'books.html', {'books': books})
 
 def book_more_info(request, book_id):
     book = get_object_or_404(Book, pk=book_id)
@@ -35,14 +40,15 @@ def book_more_info(request, book_id):
 
 
 def create_review(request):
+    template_name = ''
     if request.method == 'POST':
         form = ReviewsForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            redirect('/')
 
+        return redirect('home')
     else:
         form = ReviewsForm()
 
-    return render(request, 'create_review.html', {'form': form})
+    return render(request, 'home.html', {'form': form})
     

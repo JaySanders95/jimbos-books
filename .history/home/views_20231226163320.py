@@ -34,15 +34,18 @@ def book_more_info(request, book_id):
     return render(request, 'book_more_info.html', {'book' : book})
 
 
+from django.shortcuts import render
+from .forms import ReviewsForm
+
 def create_review(request):
     if request.method == 'POST':
         form = ReviewsForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            redirect('/')
+            # Add any additional logic for a successful form submission
 
     else:
         form = ReviewsForm()
 
-    return render(request, 'create_review.html', {'form': form})
+    return render(request, 'your_template.html', {'form': form})
     

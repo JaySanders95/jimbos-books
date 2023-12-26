@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% load crispy_forms_tags %}
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h2>Create a Review</h2>
+
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                <div class="form-group">
+                    <label for="id_full_name">Full Name:</label>
+                    {{ reviews.full_name }}
+                </div>
+
+                <div class="form-group">
+                    <label for="id_review_title">Review Title:</label>
+                    {{ reviews.review_title }}
+                </div>
+
+                <div class="form-group">
+                    <label for="id_review_body">Review Body:</label>
+                    {{ reviews.review_body }}
+                </div>
+
+                <div class="form-group">
+                    <label for="id_review_image">Review Image:</label>
+                    {{ reviews.review_image }}
+                </div>
+
+                <div class="form-group">
+                    <label for="id_rating">Rating:</label>
+                    {{ reviews.rating }}
+                </div>
+
+                <button type="submit">Submit Review</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

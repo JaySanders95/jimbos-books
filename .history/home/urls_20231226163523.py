@@ -5,7 +5,7 @@ from .views import BookListView
 
 urlpatterns = [
     path('', views.home, name='home'),
-    path('reviews/', views.create_review, name='create_review'), 
+    path()
     path('books/', BookListView.as_view(), name='books'),
     path('books/<int:book_id>/', views.book_more_info, name='book_more_info')
     

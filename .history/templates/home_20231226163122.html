@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h3>LANDING PAGE - INCOMPLETE (WILL add more coming 28/12)<a class="nav-link text-dark" href="{% url 'books' %}">Books link</a></h3>
+
+            <table>
+                <tr>
+                    <th>How to make a cup of tea</th>
+                </tr>
+                <tr>
+                    <td>1. Get your Tetleys tea bag, no Yorkshire shite.</td>
+                </tr>
+                <tr>
+                    <td>2. Boil your kettle and put sugar into your Everton mug.</td>
+                </tr>
+                <tr>
+                    <td>3. Add hot water and milk</td>
+                </tr>
+                <tr>
+                    <td>4. Stir with Teabag for 3 full clockwise motions</td>
+                </tr>
+                <tr>
+                    <td>5. Lob your Teabag out the window</td>
+                </tr>
+                <tr>
+                    <td>6. Pour your drink down the sink and make a coffee like a real man</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+{% load crispy_forms_tags %}
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h2>Create a Review</h2>
+
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                <div class="form-group">
+                    <label for="id_full_name">Full Name:</label>
+                    {{ reviews.full_name }}
+                </div>
+
+                <div class="form-group">
+                    <label for="id_review_title">Review Title:</label>
+                    {{ reviews.review_title }}
+                </div>
+
+                <div class="form-group">
+                    <label for="id_review_body">Review Body:</label>
+                    {{ reviews.review_body }}
+                </div>
+
+                <div class="form-group">
+                    <label for="id_review_image">Review Image:</label>
+                    {{ reviews.review_image }}
+                </div>
+
+                <div class="form-group">
+                    <label for="id_rating">Rating:</label>
+                    {{ reviews.rating }}
+                </div>
+
+                <button type="submit">Submit Review</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
