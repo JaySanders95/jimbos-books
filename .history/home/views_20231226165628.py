@@ -1,7 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.db.models import Q
 from django.views import View
-from django.contrib import messages
 from .models import Book, Reviews
 from .forms import ReviewsForm
 

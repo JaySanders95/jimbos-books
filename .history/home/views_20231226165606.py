@@ -1,7 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.db.models import Q
 from django.views import View
-from django.contrib import messages
 from .models import Book, Reviews
 from .forms import ReviewsForm
 
@@ -40,7 +39,7 @@ def create_review(request):
         form = ReviewsForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Your review has been sent.')
+            messages.success
             return redirect('home')
 
     else:
