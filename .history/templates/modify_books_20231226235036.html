@@ -1,0 +1,26 @@
+{% extends 'staff_settings.html' %}
+
+{% block settings_content %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h2>Modify Books</h2>
+            <ul>
+                {% for book in books %}
+                    <li>
+                        {{ book.title }} by {{ book.author }}
+                        <form method="post" action="{% url 'staff:modify_books' book_id=book.id %}">
+                            {% csrf_token %}
+                            <label for="modified_title">Modified Title:</label>
+                            <input type="text" name="modified_title" value="{{ book.title }}">
+                            <label for="modified_author">Modified Author:</label>
+                            <input type="text" name="modified_author" value="{{ book.author }}">
+                            <button type="submit">Save Changes</button>
+                        </form>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
