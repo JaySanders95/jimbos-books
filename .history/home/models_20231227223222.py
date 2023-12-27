@@ -81,18 +81,13 @@ class Reviews(models.Model):
     def __str__(self):
         return self.review_title
 
-class Job_Type(models.Model):
-    name = models.CharField(max_length=20, null=True, blank=True)
-
-    def __str__(self):
-        return self.name
 
 class Careers(models.Model):
-    title = models.CharField(max_length=50, null=False, blank=False)
-    description = models.CharField(max_length=200, null=False, blank=False)
+    title = models.CharField(max_length=50, null=False, blank=False),
+    description = models.CharField(max_length=200, null=False, blank=False),
     expiry_date = models.DateField(),
-    salary = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
-    job_type = models.ForeignKey(Job_Type, on_delete=models.SET_NULL, null=True)
+    salary = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True),
+    job_type = models.ForeignKey(Job_Type, on_delete=models.SET_NULL, null=True, multiple=True)
 
     class Meta:
         verbose_name_plural = "careers"
@@ -100,4 +95,8 @@ class Careers(models.Model):
     def __str__(self):
         return self.title
 
+class Job_Type(models.Model):
+    name = models.CharField(max_length=20, )
 
+    def __str__(self):
+        return self.name

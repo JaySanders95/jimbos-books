@@ -103,6 +103,7 @@ form.addEventListener('submit', function(ev) {
                     form.submit();
                 }
             }
+            console.log("JavaScript is working!");
         });
     }).fail(function () {
         // just reload the page, the error will be in django messages
