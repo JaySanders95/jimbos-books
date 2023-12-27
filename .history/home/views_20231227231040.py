@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import user_passes_test
 from django.db.models import Q
 from django.views import View
 from django.contrib import messages
-from .models import Book, Reviews, Careers
+from .models import Book, Reviews
 from .forms import ReviewsForm, BookForm, BookUpdateForm, JobForm
 
 """
@@ -120,21 +120,5 @@ def add_book(request):
 """
 Views for Staff settings -> Careers 
 """
-@user_passes_test(is_staff)
-def add_job(request):
-    if request.method == 'POST':
-        form = JobForm(request.POST)
-        if form.is_valid():
-            form.save()
-            messages.success(request, "Job added successfully")
-            return redirect('job_list')
-    else:
-        form = JobForm()
-    
-    return render(request, 'add_job.html', {'form' : form})
 
-
-@user_passes_test(is_staff)
-def job_list(request):
-    careers = Careers.objects.all()
-    return render(request, 'job_list.html', {'careers': careers})
+def add

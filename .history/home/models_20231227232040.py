@@ -90,7 +90,7 @@ class Job_Type(models.Model):
 class Careers(models.Model):
     title = models.CharField(max_length=50, null=False, blank=False)
     description = models.CharField(max_length=200, null=False, blank=False)
-    expiry_date = models.DateField(null=True, blank=True)
+    expiry_date = models.DateField()
     salary = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
     job_type = models.ForeignKey(Job_Type, on_delete=models.SET_NULL, null=True)
 

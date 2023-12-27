@@ -1,5 +1,5 @@
 from django import forms
-from .models import Reviews, Book, Careers
+from .models import Reviews, Book
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Submit
 
@@ -37,10 +37,7 @@ class BookUpdateForm(forms.ModelForm):
 
 class JobForm(forms.ModelForm):
     class Meta:
-        model = Careers
-        fields = ['title', 'description', 'expiry_date', 'salary', 'job_type']
-
-        
+        model
 
 
 

@@ -1,0 +1,20 @@
+{% extends 'staff_settings.html' %}
+
+{% block settings_content %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h2>View Jobs</h2>
+            <ul>
+                {% for career in careers %}
+                    <li>
+                        {{ career.title }} by {{ book.author }}
+                        <a href="">Modify</a>
+                        <a href="">Delete</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

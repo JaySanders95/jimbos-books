@@ -13,8 +13,6 @@ urlpatterns = [
     path('staff/modify_books/<int:book_id>/', views.modify_books, name='modify_books'),
     path('staff/delete_books/<int:book_id>/', views.delete_books, name='delete_books'),
     path('staff/view_books/', views.view_books, name='view_books'),
-    path('staff/add_job/', views.add_job, name='add_job'),
-    path('staff/job_list/', views.job_list, name='job_list'),
-
+    path('staff/add_job/', views.view_books, name='view_books'),
     
 ]

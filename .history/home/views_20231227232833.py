@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import user_passes_test
 from django.db.models import Q
 from django.views import View
 from django.contrib import messages
-from .models import Book, Reviews, Careers
+from .models import Book, Reviews
 from .forms import ReviewsForm, BookForm, BookUpdateForm, JobForm
 
 """
@@ -132,9 +132,7 @@ def add_job(request):
         form = JobForm()
     
     return render(request, 'add_job.html', {'form' : form})
-
-
 @user_passes_test(is_staff)
 def job_list(request):
     careers = Careers.objects.all()
-    return render(request, 'job_list.html', {'careers': careers})
+    return render(request, 'careers/job_list.html', {'careers': careers})

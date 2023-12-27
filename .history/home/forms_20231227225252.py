@@ -38,9 +38,9 @@ class BookUpdateForm(forms.ModelForm):
 class JobForm(forms.ModelForm):
     class Meta:
         model = Careers
-        fields = ['title', 'description', 'expiry_date', 'salary', 'job_type']
+        fields = ['title', 'description', 'expiry'
 
-        
+        ]
 
 
 

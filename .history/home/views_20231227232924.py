@@ -137,4 +137,4 @@ def add_job(request):
 @user_passes_test(is_staff)
 def job_list(request):
     careers = Careers.objects.all()
-    return render(request, 'job_list.html', {'careers': careers})
+    return render(request, 'careers/job_list.html', {'careers': careers})
