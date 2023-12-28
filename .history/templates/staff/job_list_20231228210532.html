@@ -1,0 +1,24 @@
+{% extends 'staff/staff_settings.html' %}
+
+{% block settings_content %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h2>View Jobs</h2>
+            <ul>
+                {% for career in careers %}
+                    <li>
+                        <strong>{{ career.title }}</strong>
+                        <p>Description: {{ career.description }}</p>
+                        <p>Expiry Date: {% if career.expiry_date %}{{ career.expiry_date }}{% else %}Not specified{% endif %}</p>
+                        <p>Salary: {% if career.salary %}${{ career.salary }}{% else %}Not specified{% endif %}</p>
+                        <p>Job Type: {{ career.job_type }}</p>
+                        <a href="{% url 'modify_job'  %}">Modify</a>
+                        <a href="">Delete</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

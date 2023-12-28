@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Staff Settings{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h2>Staff Settings</h2>
+                <fieldset class="border">
+                    <legend>Books</legend>
+                        <ul>
+                            <li><a href="{% url 'add_book' %}">Add Book</a></li>
+                            <li><a href="{% url 'view_books' %}">View Books</a></li>
+                        </ul>
+                </fieldset>
+                <fieldset class="border">
+                    <legend>Careers</legend>
+                        <ul>
+                            <li><a href="{% url 'add_job' %}">Add Job</a></li>
+                            <li><a href="{% url 'job_list' %}">View jobs</a></li>
+                        </ul>
+                </fieldset>
+                <fieldset class="border">
+                    <legend>Reviews</legend>
+                        <ul>
+                            <li><a href="{% url 'view_reviews' %}">View Reviews</a></li>
+                        </ul>
+                </fieldset>
+            </div>
+            <div class="col">
+                {% block settings_content %}{% endblock %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
