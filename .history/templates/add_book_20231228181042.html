@@ -1,0 +1,29 @@
+{% extends 'staff_settings.html' %}
+
+{% block settings_content %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h2>Add Book</h2>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Add Book</button>
+            </form>
+            <label for="randomString">Random String:</label>
+            <input type="text" id="randomString" name="randomString" readonly>
+            <button type="button" onclick="generateRandomString()">Generate Random SKU</button>
+        </div>
+    </div>
+</div>
+<script>
+    function generateRandomString() {
+        // Generate a random 20-character string of numbers
+        const randomString = Array.from({ length: 20 }, () => Math.floor(Math.random() * 10)).join('');
+
+        
+        // Update the value of the text-box
+        document.getElementById('randomString').value = randomString;
+    }
+</script>
+{% endblock %}

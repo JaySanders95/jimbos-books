@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+{% load crispy_forms_tags %}
+{% if user.is_authenticated %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h2>Create a Review</h2>
+
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                
+                {{ form.full_name|as_crispy_field }}
+                {{ form.review_title|as_crispy_field }}
+                {{ form.review_body|as_crispy_field }}
+                {{ form.review_image|as_crispy_field }}
+                {{ form.rating|as_crispy_field }}
+
+                <button type="submit">Submit Review</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% else %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h2>Please Sign In</h2>
+            p
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{% endblock %}

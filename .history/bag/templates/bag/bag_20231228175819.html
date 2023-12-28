@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+{% block title %}Your bag{% endblock %}
+
+{% block content %}
+    <div class="overlay"></div>
+    <div class="container mb-2">
+        <div class="row">
+            <div class="col">
+                <hr>
+                <h2 class="mb-4">Shopping Bag</h2>
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                {% if bag_items %}
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Items</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in bag_items %}
+                                <tr>
+                                    <td>{{ item.book.title }}</td>
+                                    <td>{{ item.quantity }}</td>
+                                    <td>{{ item.book.price }}</td>
+                                    <td>{{ item.total }}</td>
+                                    <td>
+                                        <a href="{% url 'remove_item_from_bag' item.item_id %}" class="btn btn-danger btn-sm remove-item">Remove</a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            <tr>
+                                <td colspan="5">
+                                    <h6>Bag Total: £{{ total|floatformat:2 }}</h6>
+                                    <h6>Standard delivery: £{{ delivery|floatformat:2 }}</h6>
+                                    <h4>Grand Total: £{{ grand_total|floatformat:2 }}</h4>
+                                    <a href="{% url 'checkout' %}" class="btn btn-success btn-sm">
+                                        <i class="fas fa-lock"></i> Secure Checkout
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <a href="" class="btn btn-warning btn-sm">
+                                    <i class="fas fa-arrow-left"></i> Keep Shopping
+                                </a>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                {% else %}
+                    <h2 class="">Your bag is empty!</h2>
+                    <p>Click <a href="{% url 'books' %}"><strong>here</strong></a> to return to the shop.</p>
+                {% endif %}
+            </div>
+        </div>
+
+
+    </div>
+
+<!-- <script type="text/javascript">
+    $('.remove-item').click(function(e) {
+        var csrfToken = "{{ csrf_token }}";
+        var itemId = $(this).attr('id').split('remove_')[1];
+        var url = `/bag/remove/${itemId}`
+        var data = { 'csrfmiddlewaretoken' : csrfToken};
+
+        $.post(url, data)
+            .done(function() {
+                location.reload();
+            })
+    })
+</script> -->
+
+
+
+
+{% endblock %}
