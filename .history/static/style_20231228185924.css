@@ -2,7 +2,7 @@
 /* Hero image */
 
 .carousel-item img {
-    max-height: 600px !important;
+    max-height: 400px;
 }
 
 
@@ -34,8 +34,6 @@
     margin-bottom: 95px;
 }
 
-
-/* Reviews */
 #reviews-section {
     margin-top: 20px;
 }

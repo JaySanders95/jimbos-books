@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+
+            
+
+            <h1>Welcome to Jimbo's Books</h1>
+            <p>Explore a vast collection of books at Jimbo's Books. Whether you're a fan of fiction, non-fiction, or
+                classics, we have something for every reader.</p>
+            <p>Join our community of book lovers and discover new worlds through the magic of literature. Our curated
+                selection ensures there's a perfect book waiting for you.</p>
+            <p>Don't miss out on our exclusive deals and discounts. Stay informed about the latest releases and
+                literary events. Jimbo's Books is not just a bookstore; it's a literary journey!</p>
+            <div id="reviews-section">
+                <h3>Customer Reviews</h3>
+                <div id="review-container">
+                    {% for review in reviews %}
+                        <div class="review {% if forloop.first %}active{% endif %}">
+                            {% if review.review_image %}
+                                <img src="{{ review.review_image.url }}" alt="Review Image" class="review-image">
+                            {% endif %}
+                            <div class="review-text">
+                                <p>{{ review.review_body }}</p>
+                                <p>Date of Review: {{ review.date_of_review }}</p>
+                                <p>- {{ review.full_name }}</p>
+                            </div>
+                        </div>
+                        {% if not forloop.last %}
+                            <hr class="review-divider">
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // JavaScript script to cycle through reviews
+    const reviews = document.querySelectorAll('.review');
+    let currentIndex = 0;
+
+    function showReview(index) {
+        reviews.forEach(review => review.classList.remove('active'));
+        reviews[index].classList.add('active');
+    }
+
+    function nextReview() {
+        currentIndex = (currentIndex + 1) % reviews.length;
+        showReview(currentIndex);
+    }
+
+    // Initial display
+    showReview(currentIndex);
+
+    // Set up interval to automatically cycle through reviews
+    setInterval(nextReview, 5000);  // Adjust the interval as needed (milliseconds)
+</script>
+
+{% endblock %}

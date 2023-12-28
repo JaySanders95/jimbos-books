@@ -1,12 +1,7 @@
 
-/* Hero image */
-
-.carousel-item img {
-    max-height: 600px !important;
-}
 
 
-/* Book shop */
+
 .book {
     border: 1px solid #ddd;
     margin: 20px;
@@ -20,7 +15,6 @@
     height: 300px;
 }
 
-/* Navigation */
 .navbar-light .navbar-nav .nav-link {
     color: rgb(255, 255, 255) !important;
 }
@@ -29,13 +23,10 @@
     height: 70px;
 }
 
-/* Page quality */
 .spacer {
     margin-bottom: 95px;
 }
 
-
-/* Reviews */
 #reviews-section {
     margin-top: 20px;
 }

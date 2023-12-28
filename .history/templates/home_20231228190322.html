@@ -39,37 +39,40 @@
                         </div>
                     </div>
                 </div>
+                <a class="carousel-control-prev" href="#imageCarousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#imageCarousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
             </div>
 
 
-            <div class="container text-center mt-4">
+            <div class="container text-center">
                 <h1 class="">Welcome to Jimbo's Books</h1>
                 <p>Explore a vast collection of books at Jimbo's Books. Whether you're a fan of fiction, non-fiction, or classics, we have something for every reader.</p>
                 <p>Join our community of book lovers and discover new worlds through the magic of literature. Our curated selection ensures there's a perfect book waiting for you.</p>
                 <p>Don't miss out on our exclusive deals and discounts. Stay informed about the latest releases and literary events. Jimbo's Books is not just a bookstore; it's a literary journey!</p>
             </div>
-            <div id="reviews-section" class="container my-5 p-4 border rounded">
-                <h3 class="text-center mb-4">Customer Reviews</h3>
-                <div id="review-container" class="row">
+            <div id="reviews-section">
+                <h3>Customer Reviews</h3>
+                <div id="review-container">
                     {% for review in reviews %}
-                        <div class="col-md-6">
-                            <div class="review {% if forloop.first %}active{% endif %}">
-                                <div class="review-text text-center">
-                                    <p class="overflow-hidden"><strong>{{ review.review_title }}</strong></p>
-                                </div>
-                                {% if review.review_image %}
-                                    <img src="{{ review.review_image.url }}" alt="Review Image" class="review-image img-fluid">
-                                {% endif %}
-                                <div class="review-text text-center">
-                                    <p class="overflow-hidden">{{ review.review_body }}</p>
-                                    <p class="overflow-hidden">Date of Review: {{ review.date_of_review }}</p>
-                                    <p class="overflow-hidden">- {{ review.full_name }}</p>
-                                </div>
-                            </div>
-                            {% if not forloop.last %}
-                                <hr class="review-divider my-4">
+                        <div class="review {% if forloop.first %}active{% endif %}">
+                            {% if review.review_image %}
+                                <img src="{{ review.review_image.url }}" alt="Review Image" class="review-image">
                             {% endif %}
+                            <div class="review-text">
+                                <p>{{ review.review_body }}</p>
+                                <p>Date of Review: {{ review.date_of_review }}</p>
+                                <p>- {{ review.full_name }}</p>
+                            </div>
                         </div>
+                        {% if not forloop.last %}
+                            <hr class="review-divider">
+                        {% endif %}
                     {% endfor %}
                 </div>
             </div>

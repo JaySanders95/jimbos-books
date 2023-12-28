@@ -42,7 +42,7 @@
             </div>
 
 
-            <div class="container text-center mt-4">
+            <div class="container text-center">
                 <h1 class="">Welcome to Jimbo's Books</h1>
                 <p>Explore a vast collection of books at Jimbo's Books. Whether you're a fan of fiction, non-fiction, or classics, we have something for every reader.</p>
                 <p>Join our community of book lovers and discover new worlds through the magic of literature. Our curated selection ensures there's a perfect book waiting for you.</p>
@@ -52,11 +52,8 @@
                 <h3 class="text-center mb-4">Customer Reviews</h3>
                 <div id="review-container" class="row">
                     {% for review in reviews %}
-                        <div class="col-md-6">
+                        <div class="col-md-7">
                             <div class="review {% if forloop.first %}active{% endif %}">
-                                <div class="review-text text-center">
-                                    <p class="overflow-hidden"><strong>{{ review.review_title }}</strong></p>
-                                </div>
                                 {% if review.review_image %}
                                     <img src="{{ review.review_image.url }}" alt="Review Image" class="review-image img-fluid">
                                 {% endif %}

@@ -54,9 +54,7 @@
                     {% for review in reviews %}
                         <div class="col-md-6">
                             <div class="review {% if forloop.first %}active{% endif %}">
-                                <div class="review-text text-center">
-                                    <p class="overflow-hidden"><strong>{{ review.review_title }}</strong></p>
-                                </div>
+                                div
                                 {% if review.review_image %}
                                     <img src="{{ review.review_image.url }}" alt="Review Image" class="review-image img-fluid">
                                 {% endif %}
