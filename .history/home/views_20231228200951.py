@@ -151,7 +151,7 @@ Views for Staff settings -> Reviews
 @user_passes_test(is_staff)
 def view_reviews(request):
     reviews = Reviews.objects.all()
-    return render(request, 'view_reviews.html', {'reviews': reviews})
+    return render(request, 'view_reviews.html', {'review': review})
 
 
 @user_passes_test(is_staff)

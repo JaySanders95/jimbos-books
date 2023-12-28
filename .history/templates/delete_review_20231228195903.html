@@ -1,0 +1,18 @@
+{% extends 'staff_settings.html' %}
+
+{% block settings_content %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h2>Confirm Deletion</h2>
+            <p>Are you sure you want to delete the review by {{ book.full_name }}?</p>
+            <form method="post" action="">
+                {% csrf_token %}
+                <button type="submit">Delete</button>
+                <a href="{% url 'view_reviews' %}">Cancel</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

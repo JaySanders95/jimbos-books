@@ -54,6 +54,7 @@
                         <li>
                             <a class="nav-link text-light" href="{% url 'create_review' %}">Leave a Review</a>
                         </li>
+                        {% endif %}
                         {% if user.is_staff %}
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">

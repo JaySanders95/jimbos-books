@@ -116,10 +116,6 @@ def add_book(request):
 
     return render(request, 'add_book.html', {'form': form})
 
-@user_passes_test(is_staff)
-def book_deleted(request):
-    return render(request, 'book_deleted.html')
-
 
 """
 Views for Staff settings -> Careers 
@@ -155,16 +151,12 @@ def view_reviews(request):
 
 
 @user_passes_test(is_staff)
-def delete_review(request, reviews_id):
-    review = get_object_or_404(Reviews, pk=reviews_id)
+def delete_reviews(request, book_id):
+    reviews = get_object_or_404(Reviews, pk=reviews_id)
 
     if request.method == 'POST':
         # This means the deletion is confirmed
-        review.delete()
-        return render(request, 'review_deleted.html', {'review': review})
+        reviews.delete()
+        return render(request, 'view_reviews.html', {'book': book})
 
-    return render(request, 'delete_review.html', {'review': review})
-
-@user_passes_test(is_staff)
-def review_deleted(request):
-    return render(request, 'review_deleted.html')
+    return render(request, 'delete_reviews.html', {'book': book})

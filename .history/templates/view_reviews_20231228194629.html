@@ -1,0 +1,20 @@
+{% extends 'staff_settings.html' %}
+
+{% block settings_content %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h2>View Reviews</h2>
+            <ul class="list-unstyled">
+                {% for review in books %}
+                    <li class="mb-4">
+                        <h4>{{ review.review_title }} by {{ review.full_name }}</h4>
+                        <p>{{ review.review_body }}</p>
+                        <a href="{% url 'delete_review' review_id=review.id %}" class="btn btn-danger">Delete</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

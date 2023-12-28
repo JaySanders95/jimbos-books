@@ -12,9 +12,9 @@ urlpatterns = [
     path('staff/add_book/', views.add_book, name='add_book'),
     path('staff/modify_books/<int:book_id>/', views.modify_books, name='modify_books'),
     path('staff/delete_books/<int:book_id>/', views.delete_books, name='delete_books'),
-    path('staff/delete_review/<int:reviews_id>/', views.delete_review, name='delete_review'),
+    path('staff/delete_reviews/<int:review_id>/', views.delete_reviews, name='delete_books'),
+
     path('staff/view_books/', views.view_books, name='view_books'),
-    path('staff/view_reviews/', views.view_reviews, name='view_reviews'),
     path('staff/add_job/', views.add_job, name='add_job'),
     path('staff/job_list/', views.job_list, name='job_list'),
 

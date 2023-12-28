@@ -93,7 +93,7 @@ def view_books(request):
     books = Book.objects.all()
     return render(request, 'view_books.html', {'books': books})
 
-@user_passes_test(is_staff)
+
 def delete_books(request, book_id):
     book = get_object_or_404(Book, pk=book_id)
 
@@ -115,10 +115,6 @@ def add_book(request):
         form = BookForm()
 
     return render(request, 'add_book.html', {'form': form})
-
-@user_passes_test(is_staff)
-def book_deleted(request):
-    return render(request, 'book_deleted.html')
 
 
 """
@@ -147,24 +143,3 @@ def job_list(request):
 """
 Views for Staff settings -> Reviews 
 """
-
-@user_passes_test(is_staff)
-def view_reviews(request):
-    reviews = Reviews.objects.all()
-    return render(request, 'view_reviews.html', {'reviews': reviews})
-
-
-@user_passes_test(is_staff)
-def delete_review(request, reviews_id):
-    review = get_object_or_404(Reviews, pk=reviews_id)
-
-    if request.method == 'POST':
-        # This means the deletion is confirmed
-        review.delete()
-        return render(request, 'review_deleted.html', {'review': review})
-
-    return render(request, 'delete_review.html', {'review': review})
-
-@user_passes_test(is_staff)
-def review_deleted(request):
-    return render(request, 'review_deleted.html')
