@@ -9,8 +9,7 @@ urlpatterns = [
     path('books/', BookListView.as_view(), name='books'),
     path('books/<int:book_id>/', views.book_more_info, name='book_more_info'),
     path('staff/', views.staff_settings, name='staff_settings'),
-    path('careers/', views.careers, name='careers'),
-
+path('careers/', views.careers, name='careers'),
     #Staff/Books
     path('staff/add_book/', views.add_book, name='add_book'),
     path('staff/modify_books/<int:book_id>/', views.modify_books, name='modify_books'),
@@ -25,7 +24,11 @@ urlpatterns = [
     path('staff/add_job/', views.add_job, name='add_job'),
     path('staff/job_list/', views.job_list, name='job_list'),
     path('staff/modify_job/<int:id>/', views.modify_job, name='modify_job'),
-    #path('staff/delete_job/<int:id>/', views.delete_job, name='delete_job'),
+    path('staff/delete_job/<int:id>/', views.delete_job, name='delete_job'),
+
+    #Careers/
+    
+
 
     
 ]

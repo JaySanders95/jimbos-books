@@ -175,15 +175,13 @@ def modify_job(request, id):
     
     return render(request, 'staff/modify_job.html', {'job': job, 'form': form})
 
-# @user_passes_test(is_staff)
-# def delete_job(request, career_id):
-#     job = get_object_or_404(Careers, pk=career_id)
+career = get_object_or_404(Careers, pk=pk)
 
-#     if request.method == 'POST':
-#         job.delete()
-#         return redirect('job_list')
+    if request.method == 'POST':
+        career.delete()
+        return redirect('job_list')
     
-#     return render(request, 'staff/job_delete.html', {'job': job})
+    return render(request, 'staff/job_delete.html', {'career': career})
 
 
 """

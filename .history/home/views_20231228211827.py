@@ -90,13 +90,13 @@ def modify_books(request, book_id):
         form = BookForm(request.POST, request.FILES, instance=book)
         if form.is_valid():
             form.save()
-            # Redirect to a success page 
-            return render(request, 'staff/book_modified.html')
+            # Redirect to a success page or the updated book page
+            return redirect('book_more_info', book_id=book.id)
     else:
         # If it's a GET request, pre-fill the form with the existing book data
         form = BookForm(instance=book)
 
-    return render(request, 'staff/modify_books.html', {'form': form, 'book': book})
+    return render(request, 'modify_books.html', {'form': form, 'book': book})
 
 
 @user_passes_test(is_staff)
@@ -130,11 +130,6 @@ def add_book(request):
 @user_passes_test(is_staff)
 def book_deleted(request):
     return render(request, 'staff/book_deleted.html')
-
-
-# @user_passes_test(is_staff)
-# def book_modified(request):
-#     return render(request, 'staff/book_modified.html')
 
 
 """
@@ -175,15 +170,6 @@ def modify_job(request, id):
     
     return render(request, 'staff/modify_job.html', {'job': job, 'form': form})
 
-# @user_passes_test(is_staff)
-# def delete_job(request, career_id):
-#     job = get_object_or_404(Careers, pk=career_id)
-
-#     if request.method == 'POST':
-#         job.delete()
-#         return redirect('job_list')
-    
-#     return render(request, 'staff/job_delete.html', {'job': job})
 
 
 """
@@ -209,4 +195,4 @@ def delete_review(request, reviews_id):
 
 @user_passes_test(is_staff)
 def review_deleted(request):
-    return render(request, 'staff/review_deleted.html')
+    return render(request, 'review_deleted.html')

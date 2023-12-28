@@ -1,0 +1,15 @@
+
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h2>Confirm Deletion</h2>
+            <p>Are you sure you want to delete the job "{{ job.title }}"?</p>
+            <form method="post" action="{% url 'delete_job' job_id=job.id %}">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">Delete</button>
+                <a href="{% url 'job_list' %}" class="btn btn-secondary">Cancel</a>
+            </form>
+        </div>
+    </div>
+</div>
