@@ -1,8 +1,6 @@
-import { Stripe } from 'stripe';
-
 var stripePublicKey = $('#id_stripe_public_key').text().trim();
 var clientSecret = $('#id_client_secret').text().slice(1, -1);
-var stripe = Stripe(stripePublicKey);
+var stripe = Stripe('pk_test_51OQt1OCH1J0xveRXDKECKstnNxkUbtgbLLAiJqyz3trA3pq5hoV0kvIj51vNjnxa2v1VFeQ8sCzyy7z0fJ1yhjYZ00tp4E1gsb');
 var elements = stripe.elements();
 var style = {
     base: {

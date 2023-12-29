@@ -1,5 +1,3 @@
-import { Stripe } from 'stripe';
-
 var stripePublicKey = $('#id_stripe_public_key').text().trim();
 var clientSecret = $('#id_client_secret').text().slice(1, -1);
 var stripe = Stripe(stripePublicKey);
