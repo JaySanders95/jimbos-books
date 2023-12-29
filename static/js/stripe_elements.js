@@ -1,4 +1,4 @@
-var stripePublicKey = $('#id_stripe_public_key').text().slice(1, -1);
+var stripePublicKey = $('#id_stripe_public_key').text().trim();
 var clientSecret = $('#id_client_secret').text().slice(1, -1);
 var stripe = Stripe(stripePublicKey);
 var elements = stripe.elements();
@@ -112,4 +112,32 @@ form.addEventListener('submit', function(ev) {
         // just reload the page, the error will be in django messages
         location.reload();
     })
+});
+
+
+// Carousel - Home page
+
+$(document).ready(function () {
+    $('#imageCarousel').carousel();
+
+
+    // JavaScript script to cycle through reviews
+    const reviews = document.querySelectorAll('.review');
+    let currentIndex = 0;
+
+    function showReview(index) {
+        reviews.forEach(review => review.classList.remove('active'));
+        reviews[index].classList.add('active');
+    }
+
+    function nextReview() {
+        currentIndex = (currentIndex + 1) % reviews.length;
+        showReview(currentIndex);
+    }
+
+    // Initial display
+    showReview(currentIndex);
+
+    // Set up interval to automatically cycle through reviews
+    setInterval(nextReview, 5000);  // Adjust the interval as needed (milliseconds)
 });

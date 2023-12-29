@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Careers{% endblock %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h2>Current Job Openings</h2>
+            {% if current_careers %}
+                <ul>
+                    {% for career in current_careers %}
+                        <li>
+                            <h3>{{ career.title }}</h3>
+                            <p>{{ career.description }}</p>
+                            <p>Salary: {{ career.salary }}</p>
+                            <p>Job Type: {{ career.job_type }}</p>
+                            {% if career.expiry_date %}
+                                <p>Expiry Date: {{ career.expiry_date }}</p>
+                            {% endif %}
+                            <button class="btn btn-primary">Apply</button>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No current job openings. Check back later!</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% block content %}
+{% endblock %}

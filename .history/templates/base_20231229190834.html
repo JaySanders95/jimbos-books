@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html class="h-100">
+{% load static %}
+
+<head>
+    <title>{% block title %}Jimbo's Books {% endblock %}</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="{% static 'logo_image/logo-favicon.png' %}" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-TN+SJUi8vzA6zYO0n8pT1u5UOmJL3OBO4l+gBBv6Z4fYuyzGFnmZ2i6p15H6U8iD" crossorigin="anonymous">
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+Wy3uBfTEuhs7QUv3I6zW2eLheX3n5l2uTK" crossorigin="anonymous"></script>
+    
+    {% block corejs %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="{% static 'js/stripe_elements.js' %}"></script>
+    
+    {% endblock %}
+    
+</head>
+
+<body class="d-flex flex-column h-100 toppage">
+
+    <!-- Navigation -->
+    <main class="flex-shrink-0">
+        <nav class="navbar navbar-expand-lg navbar-light bg-dark border-bottom border-lg fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="{% url 'home' %}"><img id="logo" src="{% static 'logo_image/logo-image.png' %}" alt="jimbos books logo image"></a>
+                
+                <button class="navbar-toggler" style="background-color: white;" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+                    aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon" style="background-color: white;"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarText">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 text-center">
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="{% url 'books' %}">Books</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="{% url 'careers' %}">Careers</a>
+                        </li>
+                        <li>
+                            <a class="nav-link text-light" href="{% url 'create_review' %}">Leave a Review</a>
+                        </li>
+                        {% if user.is_staff %}
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Staff
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark " aria-labelledby="navbarDarkDropdownMenuLink">
+                            <li><a class="dropdown-item text-light" href="{% url 'staff_settings' %}">Staff settings</a></li>
+                            <li><a class="dropdown-item text-light" href="">Manage Orders</a></li>
+                            <li><a class="dropdown-item text-light" href="{% url 'account_logout' %}">log out</a></li>
+                            </ul>
+                        </li>
+                        {% elif user.is_authenticated %}
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                My account
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                            <li><a class="dropdown-item text-light" href="">My Account</a></li>
+                            <li><a class="dropdown-item text-light" href="">My orders</a></li>
+                            <li><a class="dropdown-item text-light" href="">log out</a></li>
+                            </ul>
+                        </li>
+                        {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="{% url 'account_login' %}">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="{% url 'account_signup' %}">Register</a>
+                        </li>
+                        
+                        {% endif %}
+
+                    </ul>
+  
+                </div>
+                <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-white{% endif %} nav-link" href="{% url 'view_bag' %}">
+                    <div class="text-center">
+                        <div><i class="fas fa-shopping-bag fa-lg"></i></div>
+                        <p class="my-0">
+                            {% if grand_total %}
+                                £{{ grand_total|floatformat:2 }}
+                            {% else %}
+                                £0.00
+                            {% endif %}
+                        </p>
+                    </div>
+                </a>
+            </div>
+        </nav>
+        <div class="spacer"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    {% for message in messages %}
+                    <div class="alert {{ message.tags}} alert-dismissable fade show text-center" id="msg" role="alert">
+                        {{ message | safe }}                     
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>    
+
+            {% block content %}
+            {% endblock content %}  
+            
+    </main>
+    
+        
+    <!-- Footer -->
+    <footer class="footer mt-auto py-3 bg-dark border-top border-lg">
+        <p class="m-0 text-center text-light ">&copy; 2023 Jimbo's Books. All rights reserved.</p>
+        <p class="m-0 text-center text-light">
+            <a href="https://www.facebook.com" class="icon-block text-light" target="_blank"><i class="fab fa-facebook-square ms-3"></i></a>
+            <a href="https://www.twitter.com" class="icon-block text-light" target="_blank"><i class="fab fa-twitter-square ms-3"></i></a>
+            <a href="https://www.instagram.com" class="icon-block text-light" target="_blank"><i class="fab fa-instagram-square ms-3"></i></a>
+            <a href="https://www.youtube.com" class="icon-block text-light" target="_blank"><i class="fab fa-youtube-square ms-3"></i></a>
+        </p>
+    </footer>
+    <script>
+        setTimeout (function() {
+        let messages = document.getElementById("msg");
+        let alert = new bootstrap.Alert(messages);
+        alert.close();
+        }, 3000);
+                
+    </script>
+</body>
+
+</html>
