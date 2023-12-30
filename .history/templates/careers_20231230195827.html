@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Careers{% endblock %}
+<div class="container career-container">
+    <h2 class="mt-5 mb-4 text-center">Careers</h2>
+    {% if careers %}
+        {% for career in careers %}
+            <div class="career">
+                <h3>{{ career.title }}</h3>
+                <p><strong>Description:</strong> {{ career.description }}</p>
+                <p><strong>Expiry Date:</strong> {{ career.expiry_date }}</p>
+                <p><strong>Salary:</strong> {% if career.salary %}£{{ career.salary }}{% else %}Not specified{% endif %}</p>
+                <p><strong>Job Type:</strong> {{ career.job_type }}</p>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p class="text-center">No careers available at the moment.</p>
+    {% endif %}
+</div>
+
+{% block content %}
+{% endblock %}

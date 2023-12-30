@@ -72,8 +72,8 @@ def careers_view(request):
     context = {'careers': careers}
 
     # Render the template with the context
-    return render(request, 'careers.html', context)
-
+    return render(request, 'careers_template.html', context)
+    
 """
 Views for Staff
 """
