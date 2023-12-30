@@ -1,0 +1,20 @@
+{% extends 'staff/staff_settings.html' %}
+
+{% block settings_content %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h2 class="h3">View Books</h2>
+            <ul class="list-group">
+                {% for book in books %}
+                    <li class="list-group-item">
+                        {{ book.title }} by {{ book.author }}
+                        <a href="{% url 'modify_books' book_id=book.id %}" class="btn btn-primary btn-sm mx-1">Modify</a>
+                        <a href="{% url 'delete_books' book_id=book.id %}" class="btn btn-danger btn-sm mx-1">Delete</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

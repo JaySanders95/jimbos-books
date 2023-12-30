@@ -1,7 +1,7 @@
 {% extends 'staff/staff_settings.html' %}
 
 {% block settings_content %}
-<div class="container">
+<div class="container mt-5">
     <h2 class="text-center mb-4">Customer Reviews</h2>
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
         {% for review in reviews %}
@@ -19,7 +19,6 @@
                         <li class="list-group-item"><strong>Author:</strong> {{ review.full_name }}</li>
                         <li class="list-group-item"><strong>Date:</strong> {{ review.date_of_review }}</li>
                     </ul>
-                    <a href="{% url 'delete_review' review.id %}">Delete</a>
                 </div>
             </div>
         {% endfor %}

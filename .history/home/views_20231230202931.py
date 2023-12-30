@@ -203,10 +203,15 @@ def view_reviews(request):
 
 
 @user_passes_test(is_staff)
-def delete_review(request, review_id):
-    review = Reviews.objects.get(id=review_id)
-    review.delete()
-    return redirect('view_reviews')
+def delete_review(request, reviews_id):
+    review = get_object_or_404(Reviews, pk=reviews_id)
+
+    if request.method == 'POST':
+        # This means the deletion is confirmed
+        review.delete()
+        return render(request, 'staff/review_deleted.html', {'review': review})
+
+    return render(request, 'staff/delete_review.html', {'review': review})
 
 @user_passes_test(is_staff)
 def review_deleted(request):

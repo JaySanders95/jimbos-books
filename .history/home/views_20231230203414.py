@@ -203,7 +203,7 @@ def view_reviews(request):
 
 
 @user_passes_test(is_staff)
-def delete_review(request, review_id):
+def delete_review(request, id):
     review = Reviews.objects.get(id=review_id)
     review.delete()
     return redirect('view_reviews')

@@ -121,27 +121,27 @@
 
 // Carousel - Home page
 
-$(document).ready(function () {
-    $('#imageCarousel').carousel();
+// $(document).ready(function () {
+//     $('#imageCarousel').carousel();
 
 
-    // JavaScript script to cycle through reviews
-    const reviews = document.querySelectorAll('.review');
-    let currentIndex = 0;
+//     // JavaScript script to cycle through reviews
+//     const reviews = document.querySelectorAll('.review');
+//     let currentIndex = 0;
 
-    function showReview(index) {
-        reviews.forEach(review => review.classList.remove('active'));
-        reviews[index].classList.add('active');
-    }
+//     function showReview(index) {
+//         reviews.forEach(review => review.classList.remove('active'));
+//         reviews[index].classList.add('active');
+//     }
 
-    function nextReview() {
-        currentIndex = (currentIndex + 1) % reviews.length;
-        showReview(currentIndex);
-    }
+//     function nextReview() {
+//         currentIndex = (currentIndex + 1) % reviews.length;
+//         showReview(currentIndex);
+//     }
 
-    // Initial display
-    showReview(currentIndex);
+//     // Initial display
+//     showReview(currentIndex);
 
-    // Set up interval to automatically cycle through reviews
-    setInterval(nextReview, 5000);  // Adjust the interval as needed (milliseconds)
-});
+//     // Set up interval to automatically cycle through reviews
+//     setInterval(nextReview, 5000);  // Adjust the interval as needed (milliseconds)
+// });

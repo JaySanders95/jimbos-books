@@ -19,7 +19,7 @@ urlpatterns = [
     
     #Staff/Reviews
     path('staff/view_reviews/', views.view_reviews, name='view_reviews'),
-    path('staff/<int:review_id>/delete_review/', views.delete_review, name='delete_review'),
+    path('staff/<int:reviews_id>/delete_review/', views.delete_review, name='delete_review'),
 
     #Staff/careers
     path('staff/add_job/', views.add_job, name='add_job'),
