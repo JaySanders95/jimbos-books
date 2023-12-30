@@ -1,0 +1,227 @@
+{% extends 'base.html' %}{% load static %}
+
+{% block title %}Checkout{% endblock %}
+
+{% block content %}
+<div class="overlay"></div>
+<div class="container mb-4">
+    <div class="row">
+        <div class="col">
+            <hr>
+            <h2 class="mb-4">Order Details</h2>
+            <hr>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6">
+            <p class="text-muted">Personal Information</p>
+            <form action="{% url 'checkout' %}" method="POST" id="payment-form">
+                {% csrf_token %}
+                <fieldset>
+                    <legend>Your Details</legend>
+                    {{ order_form.full_name | as_crispy_field}}
+                    {{ order_form.email | as_crispy_field}}
+                    {{ order_form.phone_number | as_crispy_field}}
+                </fieldset>
+                <fieldset>
+                    <legend>Delivery Address</legend>
+                    {{ order_form.street_address1 | as_crispy_field}}
+                    {{ order_form.street_address2 | as_crispy_field}}
+                    {{ order_form.postcode | as_crispy_field}}
+                    {{ order_form.town_or_city | as_crispy_field}}
+                    {{ order_form.county | as_crispy_field}}
+                    {{ order_form.country | as_crispy_field}}
+                </fieldset>
+
+                <div class="order-summary mt-4">
+                    <h4 class="mb-3">Order Summary</h4>
+                    <div class="row font-weight-bold">
+                        <div class="col-6 col-sm-5">Title</div>
+                        <div class="col-2 col-sm-2">Quantity</div>
+                        <div class="col-2 col-sm-2">Price</div>
+                        <div class="col-2 col-sm-2">Total</div>
+                    </div>
+                    {% for item in bag_items %}
+                    <div class="row">
+                        <div class="col-6 col-sm-5">{{ item.book.title }}</div>
+                        <div class="col-2 col-sm-2">{{ item.quantity }}</div>
+                        <div class="col-2 col-sm-2">£{{ item.book.price|floatformat:2 }}</div>
+                        <div class="col-2 col-sm-2">£{{ item.total|floatformat:2 }}</div>
+                    </div>
+                    {% endfor %}
+                    <div class="row mt-3">
+                        <div class="col-9"></div>
+                        <div class="col-3 col-sm-2"><strong>Bag Total:</strong></div>
+                        <div class="col-3 col-sm-1">£{{ total|floatformat:2 }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-9"></div>
+                        <div class="col-3 col-sm-2"><strong>Delivery:</strong></div>
+                        <div class="col-3 col-sm-1">£{{ delivery|floatformat:2 }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-9"></div>
+                        <div class="col-3 col-sm-2"><h4><strong>Grand Total:</strong></h4></div>
+                        <div class="col-3 col-sm-1"><h4>£{{ grand_total|floatformat:2 }}</h4></div>
+                    </div>
+                </div>
+
+                <fieldset class="px-3 mt-4">
+                    <legend class="fieldset-label small text-black px-2 w-auto">Payment</legend>
+                    <div class="mb-3" id="card-element"></div>
+                    <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
+                    <input type="hidden" value="{{ client_secret }}" name="client_secret">
+                </fieldset>
+
+                <div class="submit-button mt-4">
+                    <a href="#" class="btn btn-secondary mr-2"><span>Go back</span></a>
+                    <button id="submit-button submit" class="btn btn-primary"><span>Complete Order</span></button>
+                    <p class="small text-danger mt-2"><span>Your card will be charged £{{ grand_total|floatformat:2 }}</span></p>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+<div id="loading-overlay">
+    <h1 class="text-light logo-font loading-spinner">
+    <span class="icon">
+        <i class="fas fa-3x fa-sync-alt fa-spin"></i>
+    </span>
+    </h1>
+</div>
+<script>
+    console.log('This actually sends 1');
+    // var stripePublicKey = $('#id_stripe_public_key').text().slice(1, -1);
+    // console.log('This actually sends 2' , stripePublicKey);
+    var stripe = Stripe('pk_test_51OQt1OCH1J0xveRXDKECKstnNxkUbtgbLLAiJqyz3trA3pq5hoV0kvIj51vNjnxa2v1VFeQ8sCzyy7z0fJ1yhjYZ00tp4E1gsb');
+    console.log('This actually sends 3' , stripe);
+    var clientSecret = $('#id_client_secret').text().slice(1, -1);
+    console.log('This actually sends 4' , clientSecret);
+
+
+    var elements = stripe.elements();
+    var style = {
+        base: {
+        color: '#000',
+        fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+        fontSmoothing: 'antialiased',
+        fontSize: '16px',
+        '::placeholder': {
+        color: '#aab7c4'
+            }
+        },
+        invalid: {
+            color: '#dc3545',
+            iconColor: '#dc3545'
+            }
+    };
+    var card = elements.create('card', {style: style});
+    card.mount('#card-element');
+    console.log('This actually sends 5');
+
+    // Handle realtime validation errors on the card element
+    card.addEventListener('change', function (event) {
+        var errorDiv = document.getElementById('card-errors');
+        if (event.error) {
+            var html = `
+                <span class="icon" role="alert">
+                    <i class="fas fa-times"></i>
+                </span>
+                    <span>${event.error.message}</span>
+            `;
+            $(errorDiv).html(html);
+        } else {
+            errorDiv.textContent = '';
+        }
+    });
+
+    // Handle form submit
+    var form = document.getElementById('payment-form');
+    console.log('This actually sends 6');
+
+    form.addEventListener('submit', function(ev) {
+        ev.preventDefault();
+        console.log('This actually sends 6.1');
+        card.update({ 'disabled': true});
+        console.log('This actually sends 6.2');
+        $('#submit-button').attr('disabled', true);
+        console.log('This actually sends 6.3');
+        $('#payment-form').fadeToggle(100);
+        console.log('This actually sends 6.4');
+        $('#loading-overlay').fadeToggle(100);
+        console.log('This actually sends 6.5');
+
+        // var saveInfo = Boolean($('#id-save-info').attr('checked'));
+        // // From using {% csrf_token %} in the form
+        // var csrfToken = $('input[name="csrfmiddlewaretoken"]').val();
+        // var postData = {
+        //     'csrfmiddlewaretoken': csrfToken,
+        //     'client_secret': clientSecret,
+        //     'save_info': saveInfo,
+        // };
+        var url = '/checkout/cache_checkout_data/';
+        console.log('This actually sends 6.6');
+            
+        $.post(url, postData)
+            .done(function () {
+                stripe.confirmCardPayment(clientSecret, {
+                 payment_method: {
+                    card: card,
+                    billing_details: {
+                        name: $.trim(form.full_name.value),
+                        phone: $.trim(form.phone_number.value),
+                        email: $.trim(form.email.value),
+                        address: {
+                            line1: $.trim(form.street_address1.value),
+                            line2: $.trim(form.street_address2.value),
+                            city: $.trim(form.town_or_city.value),
+                            country: $.trim(form.country.value),
+                            state: $.trim(form.county.value),
+                        }
+                    }
+                },
+                shipping: {
+                name: $.trim(form.full_name.value),
+                phone: $.trim(form.phone_number.value),
+                address: {
+                    line1: $.trim(form.street_address1.value),
+                    line2: $.trim(form.street_address2.value),
+                    city: $.trim(form.town_or_city.value),
+                    country: $.trim(form.country.value),
+                    postal_code: $.trim(form.postcode.value),
+                    state: $.trim(form.county.value),
+                }
+            },
+        }).then(function(result) {
+            if (result.error) {
+                // Handle error
+                var errorDiv = document.getElementById('card-errors');
+                var html = `
+                    <span class="icon" role="alert">
+                        <i class="fas fa-times"></i>
+                    </span>
+                    <span>${result.error.message}</span>`;
+                $(errorDiv).html(html);
+                $('#payment-form').fadeToggle(100);
+                $('#loading-overlay').fadeToggle(100);
+                card.update({ 'disabled': false });
+                $('#submit-button').attr('disabled', false);
+            } else {
+                if (result.paymentIntent.status === 'succeeded') {
+                    form.submit();
+                }
+            }
+            console.log('This actually sends 7');
+        });
+    })
+    .fail(function () {
+        // just reload the page, the error will be in Django messages
+        location.reload();
+    });
+console.log('This actually sends 8');
+</script>
+{% endblock %}
