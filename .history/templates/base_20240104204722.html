@@ -148,6 +148,34 @@
         let alert = new bootstrap.Alert(messages);
         alert.close();
         }, 3000);
+        
+        // // Carousel - Home page
+
+        $(document).ready(function () {
+            $('#imageCarousel').carousel();
+
+
+            // JavaScript script to cycle through reviews
+            const reviews = document.querySelectorAll('.review');
+            let currentIndex = 0;
+
+            function showReview(index) {
+                reviews.forEach(review => review.classList.remove('active'));
+                reviews[index].classList.add('active');
+            }
+
+            function nextReview() {
+                currentIndex = (currentIndex + 1) % reviews.length;
+                showReview(currentIndex);
+            }
+
+            // Initial display
+            showReview(currentIndex);
+
+            // Set up interval to automatically cycle through reviews
+            setInterval(nextReview, 5000);  // Adjust the interval as needed (milliseconds)
+        });
+
     </script>
     {% block postloadjs %}
     {% endblock %}

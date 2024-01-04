@@ -46,7 +46,7 @@ class OrderForm(forms.ModelForm):
             Field('full_name', css_class='stripe-style-input'),
             Field('email', css_class='stripe-style-input'),
             Field('phone_number', css_class='stripe-style-input'),
-            Field('country', css_class='custom-dropdown-class'),
+            Field('country', css_class='custom-dropdown-class'),  # Adjust the CSS class as needed
             Field('postcode', css_class='stripe-style-input'),
             Field('town_or_city', css_class='stripe-style-input'),
             Field('street_address1', css_class='stripe-style-input'),

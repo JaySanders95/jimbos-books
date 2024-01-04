@@ -6,8 +6,8 @@ from crispy_forms.layout import Layout, Field
 
 
 class OrderForm(forms.ModelForm):
-    country = CountryField().formfield()
-
+    
+    
     class Meta:
         model = Order
         fields = ('full_name', 'email', 'phone_number', 
@@ -38,19 +38,5 @@ class OrderForm(forms.ModelForm):
                 placeholder = placeholders[field]
             self.fields[field].widget.attrs['placeholder'] = placeholder
             self.fields[field].widget.attrs['class'] = 'stripe-style-input'
-            self.fields[field].label = False
-
-        # Add Crispy-forms setup for the new country field
-        self.helper = FormHelper()
-        self.helper.layout = Layout(
-            Field('full_name', css_class='stripe-style-input'),
-            Field('email', css_class='stripe-style-input'),
-            Field('phone_number', css_class='stripe-style-input'),
-            Field('country', css_class='custom-dropdown-class'),
-            Field('postcode', css_class='stripe-style-input'),
-            Field('town_or_city', css_class='stripe-style-input'),
-            Field('street_address1', css_class='stripe-style-input'),
-            Field('street_address2', css_class='stripe-style-input'),
-            Field('county', css_class='stripe-style-input'),
-        )
+            self.fields[field].label = False    
         
