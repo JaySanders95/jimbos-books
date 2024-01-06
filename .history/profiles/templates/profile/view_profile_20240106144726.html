@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Your Profile{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1>Your Profile</h1>
+
+    {% if user_profile %}
+      <!-- Display user's information if available -->
+      <p><strong>Full Name:</strong> {{ user_profile.default_full_name }}</p>
+      <p><strong>Email:</strong> {{ user_profile.default_email }}</p>
+      <p><strong>Country:</strong> {{ user_profile.default_country }}</p>
+      <p><strong>Phone Number:</strong> {{ user_profile.default_phone_number }}</p>
+      <p><strong>Postcode:</strong> {{ user_profile.default_postcode }}</p>
+      <p><strong>Town or City:</strong> {{ user_profile.default_town_or_city }}</p>
+      <p><strong>Street Address 1:</strong> {{ user_profile.default_street_address1 }}</p>
+      <p><strong>Street Address 2:</strong> {{ user_profile.default_street_address2 }}</p>
+      <p><strong>County:</strong> {{ user_profile.default_county }}</p>
+
+      <!-- Add a button to modify information -->
+      <a href="{% url 'modify_profile' %}" class="btn btn-primary mt-3">Modify Information</a>
+    {% else %}
+      <!-- Allow the user to store their information -->
+      <p>No profile information available. Please provide your information below:</p>
+      <form method="post" action="{% url 'store_profile' %}" class="mt-3">
+        {% csrf_token %}
+        <!-- Include form fields for user profile information -->
+        <!-- For simplicity, you can use the same fields as in the checkout form -->
+        <!-- Modify this according to your UserProfile model fields -->
+        <div class="form-group">
+          <label for="full_name">Full Name:</label>
+          <input type="text" name="full_name" class="form-control" required>
+        </div>
+
+            
+
+
+
+{% endblock %}
