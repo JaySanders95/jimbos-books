@@ -1,14 +1,15 @@
+# forms.py
+
 from django import forms
 from django_countries.fields import CountryField
-from django_countries.widgets import CountrySelectWidget
 from .models import UserProfile
 
 class UserProfileForm(forms.ModelForm):
-    country = CountryField().formfield(widget=CountrySelectWidget(attrs={'class': 'custom-select'}))
+    country = CountryField().formfield()
 
     class Meta:
         model = UserProfile
-        fields = ['full_name', 'email', 'country', 'phone_number', 'postcode', 'town_or_city', 'street_address1', 'street_address2', 'county']
+        fields = ['full_name', 'email', 'country', 'phone_number', 'postcode', 'town_or_city', 'street_address1', 'street_address2', 'county',]
 
     def __init__(self, *args, **kwargs):
         # Call the parent constructor

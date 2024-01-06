@@ -7,7 +7,7 @@ from .forms import UserProfileForm
 @login_required
 def view_profile(request):
     # Retrieve user profile or create a new one if it doesn't exist
-    profile, created = UserProfile.objects.get_or_create(user=request.user)
+    profile = get_object_or_404(UserProfile, user=request.user)
 
     if request.method == 'POST':
         form = UserProfileForm(request.POST, instance=profile)
@@ -16,18 +16,17 @@ def view_profile(request):
             form.save()
             messages.success(request, 'Profile updated successfully')
         else:
-            print("form errors:", form.errors)
-            messages.error(request, 'Update failed. Please ensure the form is valid.')
+            messages.error(request, 'Update failed. Please ensure the form is valid.', error)
     else:
         form = UserProfileForm(instance=profile)
-
     orders = profile.orders.all()
 
     template = 'profiles/view_profile.html'
     context = {
-        'user_profile_form': form,
+        'form': form,
         'orders': orders,
-        'on_profile_page': True,
+        'on_profile_page': True
     }
+
 
     return render(request, template, context)

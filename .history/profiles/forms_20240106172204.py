@@ -1,10 +1,11 @@
+# forms.py
+
 from django import forms
 from django_countries.fields import CountryField
-from django_countries.widgets import CountrySelectWidget
 from .models import UserProfile
 
 class UserProfileForm(forms.ModelForm):
-    country = CountryField().formfield(widget=CountrySelectWidget(attrs={'class': 'custom-select'}))
+    country = CountryField().formfield()
 
     class Meta:
         model = UserProfile

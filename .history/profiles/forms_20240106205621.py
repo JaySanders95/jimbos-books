@@ -1,10 +1,9 @@
 from django import forms
 from django_countries.fields import CountryField
-from django_countries.widgets import CountrySelectWidget
 from .models import UserProfile
 
 class UserProfileForm(forms.ModelForm):
-    country = CountryField().formfield(widget=CountrySelectWidget(attrs={'class': 'custom-select'}))
+    country = CountryField().formfield()
 
     class Meta:
         model = UserProfile
@@ -18,10 +17,19 @@ class UserProfileForm(forms.ModelForm):
         if self.instance:
             self.fields['full_name'].initial = self.instance.full_name
             self.fields['email'].initial = self.instance.email
-            self.fields['country'].initial = self.instance.country
             self.fields['phone_number'].initial = self.instance.phone_number
             self.fields['postcode'].initial = self.instance.postcode
             self.fields['town_or_city'].initial = self.instance.town_or_city
             self.fields['street_address1'].initial = self.instance.street_address1
             self.fields['street_address2'].initial = self.instance.street_address2
             self.fields['county'].initial = self.instance.county
+
+            # Update country field initialization
+            self.fields['country'].initial = self.instance.country.code if self.instance.country else None
+
+    def clean_country(self):
+        # Ensure that the country field is a valid Country instance
+        country_code = self.cleaned_data.get('country')
+        if country_code:
+            return Country.objects.get(code=country_code)
+        return None

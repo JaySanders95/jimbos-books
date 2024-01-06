@@ -25,7 +25,7 @@ def view_profile(request):
 
     template = 'profiles/view_profile.html'
     context = {
-        'user_profile_form': form,
+        'user_form': form,
         'orders': orders,
         'on_profile_page': True,
     }

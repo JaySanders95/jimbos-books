@@ -7,7 +7,7 @@ from .forms import UserProfileForm
 @login_required
 def view_profile(request):
     # Retrieve user profile or create a new one if it doesn't exist
-    profile, created = UserProfile.objects.get_or_create(user=request.user)
+    profile = get_object_or_404(UserProfile, user=request.user)
 
     if request.method == 'POST':
         form = UserProfileForm(request.POST, instance=profile)
@@ -27,7 +27,7 @@ def view_profile(request):
     context = {
         'user_profile_form': form,
         'orders': orders,
-        'on_profile_page': True,
+        'on_profile_page': True
     }
 
     return render(request, template, context)

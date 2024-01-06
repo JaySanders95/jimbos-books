@@ -28,6 +28,11 @@
             {% csrf_token %}
             
             {% crispy user_profile_form %}
+            
+            <div class="form-group">
+                <label for="{{ user_profile_form.country.id_for_label }}">Country:</label>
+                {{ user_profile_form.country|as_crispy_field }}
+            </div>
 
             <button type="submit" class="btn btn-success">Save Information</button>
         </form>
