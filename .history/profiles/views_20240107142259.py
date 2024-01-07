@@ -35,8 +35,8 @@ def view_profile(request):
 
 @login_required
 def user_orders(request):
-    user = request.user    
-    orders = Order.objects.filter(user_profile__user=user)
+    user = request.user
+    orders = Order.objects.filter(user_profile__user=user).order_by('-date_ordered')
 
     context = {
         'orders': orders,

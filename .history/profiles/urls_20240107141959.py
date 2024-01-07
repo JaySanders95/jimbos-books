@@ -5,5 +5,5 @@ from .views import view_profile, user_orders
 
 urlpatterns = [
     path('', views.view_profile, name='view_profile'),
-    path('user_orders/', user_orders, name='user_orders'),
+    path('profiles/user_orders/', user_orders, name='user_orders')
 ]

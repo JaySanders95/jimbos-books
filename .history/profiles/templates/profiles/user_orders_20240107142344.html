@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}Your Orders{% endblock %}
+
+{% block content %}
+  <div class="container mt-4">
+    <h1>Your Orders</h1>
+
+    {% if orders %}
+      {% for order in orders %}
+        <div class="order-details">
+          <p>
+            Order Number: {{ order.order_number }}<br>
+            Total: £{{ order.grand_total }}<br>
+            Date Ordered: {{ order.date }}
+          </p>
+
+          <h3>Books Ordered:</h3>
+          <ul>
+            {% for line_item in order.lineitems.all %}
+              <li>
+                Book: {{ line_item.book.title }}<br>
+                Quantity: {{ line_item.quantity }}<br>
+                Price: £{{ line_item.book.price }}<br>
+                Subtotal: £{{ line_item.lineitem_total }}
+              </li>
+              <hr>
+            {% endfor %}
+          </ul>
+          <hr>
+        </div>
+      {% endfor %}
+    {% else %}
+      <p>You haven't placed any orders yet.</p>
+    {% endif %}
+  </div>
+{% endblock %}

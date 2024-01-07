@@ -81,7 +81,6 @@ def checkout(request):
             order = order_form.save(commit=False)
             if user.is_authenticated:
                 user_profile = UserProfile.objects.get(user=user)
-                order.user_profile = user_profile
             
             pid = request.POST.get('client_secret').split('_secret')[0]
             order.stripe_pid = pid

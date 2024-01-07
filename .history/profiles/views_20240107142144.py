@@ -24,7 +24,7 @@ def view_profile(request):
 
     orders = profile.orders.all()
 
-    template = 'view_profile.html'
+    template = 'profiles/view_profile.html'
     context = {
         'user_profile_form': form,
         'orders': orders,
@@ -35,8 +35,8 @@ def view_profile(request):
 
 @login_required
 def user_orders(request):
-    user = request.user    
-    orders = Order.objects.filter(user_profile__user=user)
+    user = request.user
+    orders = Order.objects.filter(user_profile__user=user).order_by('-date_ordered')
 
     context = {
         'orders': orders,

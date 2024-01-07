@@ -35,8 +35,12 @@ def view_profile(request):
 
 @login_required
 def user_orders(request):
-    user = request.user    
+    user = request.user
+    print("User: ", user)
+    user_profile = UserProfile
+    print("User id: ", user.id)
     orders = Order.objects.filter(user_profile__user=user)
+    print("Orders: ", orders)
 
     context = {
         'orders': orders,

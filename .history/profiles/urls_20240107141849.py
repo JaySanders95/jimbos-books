@@ -1,9 +1,9 @@
 from django.contrib import admin
 from django.urls import path
 from . import views
-from .views import view_profile, user_orders
+from .views import view_profile
 
 urlpatterns = [
     path('', views.view_profile, name='view_profile'),
-    path('user_orders/', user_orders, name='user_orders'),
+    path('profile')
 ]
