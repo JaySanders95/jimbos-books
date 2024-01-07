@@ -22,7 +22,7 @@
 
         <a href="{% url 'view_profile' %}" class="btn btn-primary mt-3">Modify Information</a>
     {% else %}
-       
+        <!-- Allow the user to store their information -->
         <p>No profile information available. Please provide your information below:</p> -->
         <form method="post" action="{% url 'view_profile' %}" class="mt-3" >
             {% csrf_token %}
