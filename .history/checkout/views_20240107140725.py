@@ -107,7 +107,7 @@ def checkout(request):
     else:
         bag = request.session.get('bag', {})
         initial_data = {}
-        
+        print("Initial Data:", initial_data)
         
         if user.is_authenticated:
             try:
@@ -126,8 +126,7 @@ def checkout(request):
             except UserProfile.DoesNotExist:
                 pass
 
-        print("Initial Data:", initial_data)
-    order_form = OrderForm(initial=initial_data)
+        order_form = OrderForm(initial=initial_data)
 
     if not bag:
         messages.error(request, "There's nothing in your bag")
@@ -142,7 +141,7 @@ def checkout(request):
         currency=settings.STRIPE_CURRENCY,
     )
 
-    order_form = OrderForm(initial=initial_data)
+    order_form = OrderForm()
     template = 'checkout/checkout.html'
     context = {
         'order_form': order_form,

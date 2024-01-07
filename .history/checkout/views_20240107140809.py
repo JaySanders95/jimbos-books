@@ -142,7 +142,7 @@ def checkout(request):
         currency=settings.STRIPE_CURRENCY,
     )
 
-    order_form = OrderForm(initial=initial_data)
+    order_form = OrderForm()
     template = 'checkout/checkout.html'
     context = {
         'order_form': order_form,

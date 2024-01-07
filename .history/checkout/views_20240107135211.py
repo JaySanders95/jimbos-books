@@ -6,9 +6,7 @@ from django.conf import settings
 from .forms import OrderForm
 from bag.contexts import bag_contents
 from home.models import Book
-from profiles.models import UserProfile
 from .models import OrderLineItem, Order
-from .models import UserProfile
 
 import stripe
 import json
@@ -35,17 +33,6 @@ def cache_checkout_data(request):
 def checkout(request):
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
-    user = request.user
-    
-    if user.is_authenticated:
-        try:
-            user_profile = UserProfile.objects.get(user=user)
-        except UserProfile.DoesNotExist:
-            pass
-    else:
-        bag = request.session.get('bag', {})
-
-        
 
     if request.method == 'POST':
         bag = request.session.get('bag', {})
@@ -106,10 +93,8 @@ def checkout(request):
 
     else:
         bag = request.session.get('bag', {})
-        initial_data = {}
-        
-        
-        if user.is_authenticated:
+
+            if user.is_authenticated:
             try:
                 user_profile = UserProfile.objects.get(user=user)
                 initial_data = {
@@ -126,8 +111,7 @@ def checkout(request):
             except UserProfile.DoesNotExist:
                 pass
 
-        print("Initial Data:", initial_data)
-    order_form = OrderForm(initial=initial_data)
+        order_form = OrderForm(initial=initial_data)
 
     if not bag:
         messages.error(request, "There's nothing in your bag")
@@ -142,7 +126,9 @@ def checkout(request):
         currency=settings.STRIPE_CURRENCY,
     )
 
-    order_form = OrderForm(initial=initial_data)
+    print(intent)
+
+    order_form = OrderForm()
     template = 'checkout/checkout.html'
     context = {
         'order_form': order_form,
