@@ -1,0 +1,37 @@
+% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}All Orders{% endblock %}
+
+{% block content %}
+  <div class="container mt-4">
+    <h1>All Orders</h1>
+
+    {% if orders %}
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Order Number</th>
+            <th scope="col">Date</th>
+            <th scope="col">Total</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for order in orders %}
+            <tr>
+              <td><a href="{% url 'order_detail' order.order_number %}">{{ order.order_number }}</a></td>
+              <td>{{ order.date }}</td>
+              <td>£{{ order.grand_total }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <div class="alert alert-info" role="alert">
+        No orders found.
+      </div>
+    {% endif %}
+  </div>
+{% endblock %}

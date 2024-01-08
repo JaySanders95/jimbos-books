@@ -6,7 +6,6 @@ from django.contrib import messages
 from .models import Book, Reviews, Careers
 from .forms import ReviewsForm, BookForm, BookUpdateForm, JobForm, ModifyJobForm
 from datetime import date
-from checkout.models import Order, OrderLineItem
 
 """
 View for Home 

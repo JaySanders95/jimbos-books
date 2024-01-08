@@ -5,6 +5,15 @@ from .models import UserProfile
 from .forms import UserProfileForm
 from checkout.models import Order
 
+def is_staff(user):
+    return user.is_staff
+
+@user_passes_test(is_staff)
+def all_orders(request):
+    orders = Order.objects.all()
+    return render(request, 'orders/all_orders.html', {'orders': orders})
+
+
 @login_required
 def view_profile(request):
     # Retrieve user profile or create a new one if it doesn't exist
@@ -24,7 +33,7 @@ def view_profile(request):
 
     orders = profile.orders.all()
 
-    template = 'profiles/view_profile.html'
+    template = 'view_profile.html'
     context = {
         'user_profile_form': form,
         'orders': orders,

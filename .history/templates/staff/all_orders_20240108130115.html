@@ -2,35 +2,22 @@
 {% load static %}
 {% load crispy_forms_tags %}
 
-{% block title %}Your Orders{% endblock %}
+{% block title %}All Orders{% endblock %}
 
 {% block content %}
   <div class="container mt-4">
-    <h1 class="mb-4">Your Orders</h1>
+    <h1>All Orders</h1>
 
     {% if orders %}
       {% for order in orders %}
         <div class="card mb-4">
           <div class="card-body">
             <h5 class="card-title">
-              Order Number:{{ order.order_number }}</a>
+              Order Number: {{ order.order_number }}
             </h5>
             <p class="card-text">
               Date: {{ order.date }}<br>
               Total: £{{ order.grand_total }}
-            </p>
-
-            <h6 class="mt-3">Delivery Address:</h6>
-            <p>
-              Full Name: {{ order.full_name }}<br>
-              Email: {{ order.email }}<br>
-              Country: {{ order.country }}<br>
-              Phone Number: {{ order.phone_number }}<br>
-              Postal Code: {{ order.postcode }}<br>
-              Town/City: {{ order.town_or_city }}<br>
-              Street Address 1: {{ order.street_address1 }}<br>
-              Street Address 2: {{ order.street_address2 }}<br>
-              County: {{ order.county }}<br>
             </p>
 
             <h6 class="mt-3">Books Ordered:</h6>
@@ -49,7 +36,7 @@
       {% endfor %}
     {% else %}
       <div class="alert alert-info" role="alert">
-        You haven't placed any orders yet.
+        No orders found.
       </div>
     {% endif %}
   </div>

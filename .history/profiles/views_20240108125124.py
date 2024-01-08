@@ -24,7 +24,7 @@ def view_profile(request):
 
     orders = profile.orders.all()
 
-    template = 'profiles/view_profile.html'
+    template = 'view_profile.html'
     context = {
         'user_profile_form': form,
         'orders': orders,

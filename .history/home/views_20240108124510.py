@@ -6,7 +6,6 @@ from django.contrib import messages
 from .models import Book, Reviews, Careers
 from .forms import ReviewsForm, BookForm, BookUpdateForm, JobForm, ModifyJobForm
 from datetime import date
-from checkout.models import Order, OrderLineItem
 
 """
 View for Home 
@@ -81,11 +80,13 @@ Views for Staff
 def is_staff(user):
     return user.is_staff
 
+    def is_staff(user):
+    return user.is_staff
 
 @user_passes_test(is_staff)
 def all_orders(request):
     orders = Order.objects.all()
-    return render(request, 'staff/all_orders.html', {'orders': orders})
+    return render(request, 'orders/all_orders.html', {'orders': orders})
 
 @user_passes_test(is_staff)
 def staff_settings(request):

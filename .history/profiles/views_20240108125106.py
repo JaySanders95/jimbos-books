@@ -3,7 +3,7 @@ from django.shortcuts import render, get_object_or_404
 from django.contrib import messages
 from .models import UserProfile
 from .forms import UserProfileForm
-from checkout.models import Order
+from checkout.models import Order, Order
 
 @login_required
 def view_profile(request):
@@ -24,7 +24,7 @@ def view_profile(request):
 
     orders = profile.orders.all()
 
-    template = 'profiles/view_profile.html'
+    template = 'view_profile.html'
     context = {
         'user_profile_form': form,
         'orders': orders,

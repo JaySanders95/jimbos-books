@@ -2,18 +2,18 @@
 {% load static %}
 {% load crispy_forms_tags %}
 
-{% block title %}Your Orders{% endblock %}
+{% block title %}All Orders{% endblock %}
 
 {% block content %}
   <div class="container mt-4">
-    <h1 class="mb-4">Your Orders</h1>
+    <h1>All Orders</h1>
 
     {% if orders %}
       {% for order in orders %}
         <div class="card mb-4">
           <div class="card-body">
             <h5 class="card-title">
-              Order Number:{{ order.order_number }}</a>
+              Order Number: {{ order.order_number }}
             </h5>
             <p class="card-text">
               Date: {{ order.date }}<br>
@@ -49,7 +49,7 @@
       {% endfor %}
     {% else %}
       <div class="alert alert-info" role="alert">
-        You haven't placed any orders yet.
+        No orders found.
       </div>
     {% endif %}
   </div>

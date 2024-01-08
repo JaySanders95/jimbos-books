@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path
 from . import views
-from .views import BookListView
+from .views import BookListView, all_orders
 
 urlpatterns = [
     path('', views.home, name='home'),
@@ -27,9 +27,7 @@ urlpatterns = [
     path('staff/modify_job/<int:id>/', views.modify_job, name='modify_job'),
     #path('staff/delete_job/<int:id>/', views.delete_job, name='delete_job'),
 
-    path('staff/all_orders/', views.all_orders, name='all_orders'),
-    
-
+    path('all_orders/', all_orders, name='all_orders'),
 
     
 ]

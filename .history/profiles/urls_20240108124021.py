@@ -1,0 +1,10 @@
+from django.contrib import admin
+from django.urls import path
+from . import views
+from .views import view_profile, user_orders, all_orders
+
+urlpatterns = [
+    path('', views.view_profile, name='view_profile'),
+    path('user_orders/', user_orders, name='user_orders'),
+    path('all_orders/', all_orders, name='all_orders'),
+]

@@ -3,10 +3,10 @@ from django.contrib.auth.decorators import user_passes_test
 from django.db.models import Q
 from django.views import View
 from django.contrib import messages
-from .models import Book, Reviews, Careers
+from .models import Book, Reviews, areers
+from checkout.models
 from .forms import ReviewsForm, BookForm, BookUpdateForm, JobForm, ModifyJobForm
 from datetime import date
-from checkout.models import Order, OrderLineItem
 
 """
 View for Home 

@@ -28,7 +28,6 @@ urlpatterns = [
     #path('staff/delete_job/<int:id>/', views.delete_job, name='delete_job'),
 
     path('staff/all_orders/', views.all_orders, name='all_orders'),
-    
 
 
     
