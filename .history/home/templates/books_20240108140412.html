@@ -3,20 +3,6 @@
 {% block title %}Books{% endblock %}
 
 {% block content %}
-<style>
-    @media (max-width: 767px) {
-        .card-img-top {
-            width: 50%;
-            margin: 0 auto;
-            display: block;
-        }
-        
-        .card-body {
-            text-align: center;
-        }
-    }
-</style>
-
 <div class="container">
     <h1 class="mt-4 mb-4 text-center">Book Collection</h1>
 
@@ -39,7 +25,7 @@
                     {% if book.pk %}
                         <a href="{% url 'book_more_info' book_id=book.pk %}" style="text-decoration: none; color: inherit;">
                             <div class="card mb-4">
-                                <img src="{{ book.image.url }}" alt="{{ book.title }}" class="card-img-top">
+                                <img src="{{ book.image.url }}" alt="{{ book.title }}" class="card-img-top img-fluid">
                                 <div class="card-body">
                                     <h5 class="card-title">{{ book.title }}</h5>
                                     <p class="card-text">{{ book.author }}</p>

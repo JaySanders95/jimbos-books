@@ -62,14 +62,17 @@
                     </div>
                     {% endfor %}
                     <div class="row mt-3">
-                        <div class="col-3 col-sm-2 text-right"><strong>Bag Total:</strong></div>
-                        <div class="col-3 col-sm-1">£{{ total|floatformat:2 }}</div>
+                        <div class="col-9"></div>
+                        <div class="col-3 col-sm-2 text-right"><strong>Bag Total:£{{ total|floatformat:2 }}</strong></div>
+                        <div class="col-3 col-sm-1"></div>
                     </div>
                     <div class="row">
+                        <div class="col-9"></div>
                         <div class="col-3 col-sm-2 text-right"><strong>Delivery:</strong></div>
                         <div class="col-3 col-sm-1">£{{ delivery|floatformat:2 }}</div>
                     </div>
                     <div class="row">
+                        <div class="col-9"></div>
                         <div class="col-3 col-sm-2 text-right">
                             <h4><strong>Grand Total:</strong></h4>
                         </div>
@@ -113,17 +116,4 @@
 {{ stripe_public_key|json_script:"id_stripe_public_key" }}
 {{ client_secret|json_script:"id_client_secret" }}
 <script src="{% static 'js/stripe_elements.js' %}"></script>
-<script>
-    $(document).ready(function() {
-        // Add custom validation for all input fields within the form except email
-        $('#payment-form input:not([name="email"])').on('input', function() {
-            var value = $(this).val();
-            if (!/^[0-9A-Za-z\s]*$/.test(value)) {
-                this.setCustomValidity("Please enter a valid value without special characters.");
-            } else {
-                this.setCustomValidity("");
-            }
-        });
-    });
-</script>
 {% endblock %}

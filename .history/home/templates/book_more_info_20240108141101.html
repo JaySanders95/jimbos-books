@@ -3,6 +3,47 @@
 {% block title %}{{book.title}} - Buy{% endblock %}
 
 {% block content %}
+<style>
+    @media (max-width: 767px) {
+        .container {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+        .img-fluid {
+            max-width: 100%;
+            height: auto;
+        }
+        .col-md-4 {
+            margin-bottom: 20px;
+        }
+        .col-md-8 {
+            padding-left: 0;
+            padding-right: 0;
+        }
+        .book-details {
+            text-align: center;
+        }
+        .synopsis {
+            text-align: justify;
+        }
+        .form-row {
+            flex-direction: column;
+        }
+        .form-group {
+            width: 100%;
+        }
+        .qty_input {
+            width: 100%;
+            max-width: 150px;
+            margin: auto;
+        }
+        .btn-outline-black,
+        .btn-success {
+            width: 100%;
+        }
+    }
+</style>
+
 <div class="container mt-4">
     <div class="row">
         <div class="col-md-4 ">

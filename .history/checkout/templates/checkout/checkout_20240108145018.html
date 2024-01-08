@@ -115,8 +115,8 @@
 <script src="{% static 'js/stripe_elements.js' %}"></script>
 <script>
     $(document).ready(function() {
-        // Add custom validation for all input fields within the form except email
-        $('#payment-form input:not([name="email"])').on('input', function() {
+        // Add custom validation for all input fields within the form
+        $('#payment-form input').on('input', function() {
             var value = $(this).val();
             if (!/^[0-9A-Za-z\s]*$/.test(value)) {
                 this.setCustomValidity("Please enter a valid value without special characters.");
@@ -125,5 +125,5 @@
             }
         });
     });
-</script>
+sc
 {% endblock %}
