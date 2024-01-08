@@ -27,7 +27,7 @@
 <script>
     $(document).ready(function () {
         // Add custom validation for all input fields within the form except email
-        $('#profile-form input:not([name="email"])').on('input', function () {
+        $('#profile-form input').not('[name="email"]').on('input', function () {
             var value = $(this).val();
             if (!/^[a-zA-Z0-9\s]*$/.test(value)) {
                 this.setCustomValidity("Please enter a valid value without special characters.");
