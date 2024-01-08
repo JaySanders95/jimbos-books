@@ -186,7 +186,6 @@ def modify_job(request, id):
     
     return render(request, 'staff/modify_job.html', {'job': job, 'form': form})
 
-
 """
 Views for Staff settings -> Reviews 
 """

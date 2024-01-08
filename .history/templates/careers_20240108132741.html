@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% block title %}Careers{% endblock %}
+<div class="container career-container">
+    <h2 class="mt-5 mb-4 text-center">Careers</h2>
+    <div class="row">
+        {% if careers %}
+            {% for career in careers %}
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ career.title }}</h5>
+                            <p class="card-text"><strong>Description:</strong> {{ career.description }}</p>
+                            <p class="card-text"><strong>Expiry Date:</strong> {{ career.expiry_date }}</p>
+                            <p class="card-text"><strong>Salary:</strong> {% if career.salary %}£{{ career.salary }}{% else %}Not specified{% endif %}</p>
+                            <p class="card-text"><strong>Job Type:</strong> {{ career.job_type }}</p>
+                            <p><strong>To apply send your CV to Jimbo@book.com.</strong></p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p class="text-center">No careers available at the moment.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
