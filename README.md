@@ -80,32 +80,130 @@ Key Models:
 ## Skeleton Plane
 
 I used wireframes for both mobile and webpage design, although during the development process, some ideas where amended or changed for better practise.
+some of the wireframes for this project were corrupted, as they had been on an external laptop which had to be factory reset
 
-Home:
+# Home:
+- This is the landing page for Jimbo's Books and can be accessed using the logo image or the 'Home' button
 
-Mobile + web wireframes
+![](static/readme_images/wireframes/mobile-homepage.png)
+![](static/readme_images/wireframes/home-wire.png)
+![](static/readme_images/screenshots/mobile-home.png)
+![](static/readme_images/screenshots/home-reviews.png)
 
-Bookshop:
 
-Mobile + web wireframes
+## Bag
 
-Careers:
+- This is an instance where the user can view the items in their bag
 
-Mobile + web wireframes
+![](static/readme_images/wireframes/mobile-bag-empty-wire.png)
+![](static/readme_images/wireframes/mobile-bag-items-wire.png)
+![](static/readme_images/wireframes/mobile-basket.png)
+![](static/readme_images/screenshots/bag-checkout.png)
+![](static/readme_images/screenshots/bag-empty.png)
+![](static/readme_images/screenshots/bag-items.png)
 
-Reviews:
 
-Mobile + web wireframes
+# Reviews
+- This page is where users can leave reviews if logged in
+-- 
+![](static/readme_images/screenshots/mobile-view-reviews.png)
+![](static/readme_images/screenshots/create-review.png)
+![](static/readme_images/screenshots/mobile-leave-review.png)
 
-Staff Settings:
 
-Mobile + web wireframes
+
+## Checkout
+
+- This page is where users can make payments
+
+![](static/readme_images/wireframes/checkout-mobile-wire.png)
+![](static/readme_images/screenshots/mobile-checkout-form.png)
+![](static/readme_images/screenshots/mobile-checkout-success.png)
+![](static/readme_images/screenshots/mobile-checkout.png)
+![](static/readme_images/screenshots/checkout-page.png)
+![](static/readme_images/screenshots/checkout-success.png)
+
+
+
+## Book Store
+
+- This page is where users can browse the store wares.
+
+![](static/readme_images/wireframes/mobile-product-individual.png)
+![](static/readme_images/wireframes/mobile-products-page.png)
+![](static/readme_images/wireframes/bookshop-wire.png)
+![](static/readme_images/screenshots/books-page.png)
+![](static/readme_images/screenshots/individual-book.png)
+![](static/readme_images/screenshots/mobile-book-info.png)
+![](static/readme_images/screenshots/mobile-books-page.png)
+
+
+
+
+## Careers
+
+- This is where users can view careers
+
+![](static/readme_images/screenshots/mobile-careers.png)
+![](static/readme_images/screenshots/careers-page.png)
+
+
+## Profile
+- This is where the user can view their personal profile
+
+![](static/readme_images/wireframes/mobile-myaccount.png)
+![](static/readme_images/screenshots/my-profile-page.png)
+
+
+## Orders
+
+- This is where the user can track their recent orders
+
+![](static/readme_images/wireframes/orders-wire.png)
+![](static/readme_images/wireframes/your-profile-wire.png)
+![](static/readme_images/screenshots/my-orders-page.png)
+![](static/readme_images/screenshots/orders-empty.png)
+![](static/readme_images/screenshots/mobile-my-orders.png)
+
+
+## Staff 
+
+- This page is where the staff can modify their stock, careers and reviews
+
+![](static/readme_images/wireframes/staff-settings-menu.png)
+![](static/readme_images/screenshots/staff-menu.png)
+![](static/readme_images/screenshots/add-book-staff.png)
+![](static/readme_images/screenshots/staff-add-job.png)
+![](static/readme_images/screenshots/staff-book-added.png)
+![](static/readme_images/screenshots/staff-book-modified.png)
+![](static/readme_images/screenshots/staff-modify-book.png)
+![](static/readme_images/screenshots/staff-modify-jobs.png)
+![](static/readme_images/screenshots/staff-view-reviews.png)
+
+
+
+## Nav bar
+
+- This is for the user to naviate the site
+
+![](static/readme_images/wireframes/mobile-navbar-logged-in.png)
+![](static/readme_images/wireframes/mobile-navbar-not-logged-in.png)
+![](static/readme_images/screenshots/user-navbar.png)
+![](static/readme_images/screenshots/mobile-navbar.png)
+![](static/readme_images/screenshots/navbar-staff.png)
+
 
 Logout/Login/CreateAccount:
 
-Mobile + web wireframes
+![](static/readme_images/wireframes/mobile-register.png)
+![](static/readme_images/wireframes/mobile-login.png)
+![](static/readme_images/wireframes/login-signup.png)
+![](static/readme_images/screenshots/login-page.png)
+![](static/readme_images/screenshots/register-page-verified.png)
+![](static/readme_images/screenshots/register-page-verify.png)
+![](static/readme_images/screenshots/register-page.png)
+![](static/readme_images/screenshots/sign-out-page.png)
 
-Anymore -- 
 
 
 Surface Plane:
