@@ -32,7 +32,7 @@ STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
 STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = 
 
 ALLOWED_HOSTS = ['8000-jaysanders9-jimbosbooks-w3o1iwkoq6t.ws-eu107.gitpod.io', 'jimbo-books-c1b93c9d7dac.herokuapp.com', 'localhost']
 
