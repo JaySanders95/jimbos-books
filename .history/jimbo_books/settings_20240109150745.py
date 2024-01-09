@@ -34,7 +34,7 @@ STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-jaysanders9-jimbosbooks-w3o1iwkoq6t.ws-eu107.gitpod.io', 'jimbo-books-c1b93c9d7dac.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['8000-jaysanders9-jimbosbooks-w3o1iwkoq6t.ws-eu107.gitpod.io', 'https://jimbo-books-c1b93c9d7dac.herokuapp.com/', 'localhost']
 
 
 # Application definition
