@@ -5,7 +5,6 @@ from home.models import Book
 from django.shortcuts import redirect
 from django.contrib import messages
 
-
 def remove_item_from_bag(request, item_id):
     # Retrieve the current bag from the session
     bag = request.session.get('bag', {})

@@ -41,22 +41,27 @@
                                     <h6>Bag Total: £{{ total|floatformat:2 }}</h6>
                                     <h6>Standard delivery: £{{ delivery|floatformat:2 }}</h6>
                                     <h4>Grand Total: £{{ grand_total|floatformat:2 }}</h4>
-                                    <a href="{% url 'books' %}" class="btn btn-warning btn-sm">
-                                        <i class="fas fa-arrow-left"></i> Keep Shopping
-                                    </a>
                                     <a href="{% url 'checkout' %}" class="btn btn-success btn-sm">
                                         <i class="fas fa-lock"></i> Secure Checkout
                                     </a>
                                 </td>
                             </tr>
+                            <tr>
+                                <a href="{% url 'books' %}" class="btn btn-warning btn-sm">
+                                    <i class="fas fa-arrow-left"></i> Keep Shopping
+                                </a>
+                            </tr>
                         </tbody>
                     </table>
+
                 {% else %}
                     <h2>Your bag is empty!</h2>
                     <p>Click <a href="{% url 'books' %}"><strong>here</strong></a> to return to the shop.</p>
                 {% endif %}
             </div>
         </div>
+
+
     </div>
 
 {% endblock %}
