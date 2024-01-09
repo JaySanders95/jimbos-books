@@ -32,4 +32,4 @@ if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 
-handler404 = 'jimbo_books.views.handler404'
+handler404 = 'jimbo.views.handler404'

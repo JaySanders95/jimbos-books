@@ -1,4 +1,4 @@
-from django.core.mail import send_mail
+
 from django.http import HttpResponse
 from .models import Order, OrderLineItem
 from home.models import Book
