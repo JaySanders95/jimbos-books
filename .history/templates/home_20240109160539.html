@@ -1,0 +1,162 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div id="imageCarousel" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="{% static 'hero_image/art-future.webp' %}" alt="futuristic sandy place" class="d-block w-100 img-fluid lazyload">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Books full of wonder</h5>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{% static 'hero_image/knight-battle.avif' %}" alt="knights fighting in war with swords" class="d-block w-100 img-fluid lazyload">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Books full of adventure</h5>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{% static 'hero_image/bookshelf-two-people.webp' %}" alt="two people smiling reading book in bookstore" class="d-block w-100 img-fluid lazyload">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Books just for us</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="mc_embed_shell">
+                <link href="//cdn-images.mailchimp.com/embedcode/classic-061523.css" rel="stylesheet" type="text/css">
+                <style type="text/css">
+                    #mc_embed_signup{background:#fff; false;clear:left; font:14px Helvetica,Arial,sans-serif; width: 600px;}
+                  /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+                     We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+                </style>
+            <div id="mc_embed_signup">
+                <form action="https://herokuapp.us14.list-manage.com/subscribe/post?u=ef1d048af94d016abe1f87dc4&amp;id=50642a7481&amp;f_id=00e998e0f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
+                    <div id="mc_embed_signup_scroll"><h2>Subscribe</h2>
+                        <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
+                        <div class="mc-field-group"><label for="mce-EMAIL">Email Address <span class="asterisk">*</span></label><input type="email" name="EMAIL" class="required email" id="mce-EMAIL" required="" value=""><span id="mce-EMAIL-HELPERTEXT" class="helper_text"></span></div>
+                    <div id="mce-responses" class="clear foot">
+                        <div class="response" id="mce-error-response" style="display: none;"></div>
+                        <div class="response" id="mce-success-response" style="display: none;"></div>
+                    </div>
+                    <div aria-hidden="true" style="position: absolute; left: -5000px;">
+                        <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups -->
+                        <input type="text" name="b_ef1d048af94d016abe1f87dc4_50642a7481" tabindex="-1" value="">
+              </div>
+                  <div class="optionalParent">
+                      <div class="clear foot">
+                          <input type="submit" name="subscribe" id="mc-embedded-subscribe" class="button" value="Subscribe">
+                          <p style="margin: 0px auto;"><a href="http://eepurl.com/iHGKAQ" title="Mailchimp - email marketing made easy and fun"><span style="display: inline-block; background-color: transparent; border-radius: 4px;"><img class="refferal_badge" src="https://digitalasset.intuit.com/render/content/dam/intuit/mc-fe/en_us/images/intuit-mc-rewards-text-dark.svg" alt="Intuit Mailchimp" style="width: 220px; height: 40px; display: flex; padding: 2px 0px; justify-content: center; align-items: center;"></span></a></p>
+                      </div>
+                  </div>
+              </div>
+          </form>
+          </div>
+          </div>
+          
+
+
+            <div class="container text-center mt-4">
+                <h1 class="">Welcome to Jimbo's Books</h1>
+                <p>Explore a vast collection of books at Jimbo's Books. Whether you're a fan of fiction, non-fiction, or classics, we have something for every reader.</p>
+                <p>Join our community of book lovers and discover new worlds through the magic of literature. Our curated selection ensures there's a perfect book waiting for you.</p>
+                <p>Don't miss out on our exclusive deals and discounts. Stay informed about the latest releases and literary events. Jimbo's Books is not just a bookstore; it's a literary journey!</p>
+            </div>
+            <div class="container">
+           
+                <div class="text-center mt-5">
+                    <h3>Opening Times:</h3>
+                    <p>Monday - Friday: 9:00 AM - 5:00 PM</p>
+                    <p>Saturday: 10:00 AM - 3:00 PM</p>
+                    <p>Sunday: Closed</p>
+                </div>
+            
+                <div class="text-center mt-5">
+                    <h3>Location:</h3>
+                    <p>Goodison Park, Liverpool</p>
+                </div>
+            </div>
+            <div id="reviews-section" class="container my-5 p-4 border border-4 rounded">
+                <h3 class="text-center mb-4">Customer Reviews</h3>
+                <div id="review-container" class="row">
+                    {% for review in reviews %}
+                        <div class="col-md-6">
+                            <div class="review {% if forloop.first %}active{% endif %}">
+                                <div class="review-text text-center">
+                                    <p class="overflow-hidden"><strong>{{ review.review_title }}</strong></p>
+                                </div>
+                                {% if review.review_image %}
+                                    <img src="{{ review.review_image.url }}" alt="Review Image" class="review-image img-fluid">
+                                {% endif %}
+                                <div class="review-text text-center">
+                                    <p class="overflow-hidden">{{ review.review_body }}</p>
+                                    <p class="overflow-hidden">Date of Review: {{ review.date_of_review }}</p>
+                                    <p class="overflow-hidden">- {{ review.full_name }}</p>
+                                </div>
+                            </div>
+                            {% if not forloop.last %}
+                                <hr class="review-divider my-4">
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    // // Carousel - Home page
+
+    $(document).ready(function () {
+            $('#imageCarousel').carousel();
+
+
+            // JavaScript script to cycle through reviews
+            const reviews = document.querySelectorAll('.review');
+            let currentIndex = 0;
+
+            function showReview(index) {
+                reviews.forEach(review => review.classList.remove('active'));
+                reviews[index].classList.add('active');
+            }
+
+            function nextReview() {
+                currentIndex = (currentIndex + 1) % reviews.length;
+                showReview(currentIndex);
+            }
+
+            // Initial display
+            showReview(currentIndex);
+
+            // Set up interval to automatically cycle through reviews
+            setInterval(nextReview, 5000);  // Adjust the interval as needed (milliseconds)
+    });
+
+</script>
+<script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
+<script type="text/javascript">
+(function ($) {
+    window.fnames = new Array();
+    window.ftypes = new Array();
+    fnames[0] = 'EMAIL';
+    ftypes[0] = 'email';
+    fnames[1] = 'FNAME';
+    ftypes[1] = 'text';
+    fnames[2] = 'LNAME';
+    ftypes[2] = 'text';
+    fnames[3] = 'ADDRESS';
+    ftypes[3] = 'address';
+    fnames[4] = 'PHONE';
+    ftypes[4] = 'phone';
+    fnames[5] = 'BIRTHDAY';
+    ftypes[5] = 'birthday';
+}(jQuery));
+var $mcj = jQuery.noConflict(true);
+</script>
+
+
+{% endblock %}
