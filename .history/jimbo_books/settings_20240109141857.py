@@ -34,7 +34,7 @@ STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-jaysanders9-jimbosbooks-w3o1iwkoq6t.ws-eu107.gitpod.io', 'jimbo-books-c1b93c9d7dac.herokuapp.com/', 'localhost']
+ALLOWED_HOSTS = ['8000-jaysanders9-jimbosbooks-w3o1iwkoq6t.ws-eu107.gitpod.io', 'jimbo-books.herokuapp.com', 'localhost']
 
 
 # Application definition
@@ -139,23 +139,19 @@ LOGIN_REDIRECT_URL = '/'
 WSGI_APPLICATION = 'jimbo_books.wsgi.application'
 
 
-Database
-https://docs.djangoproject.com/en/3.2/ref/settings/databases
+# Database
+# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-
-if 'DATABASE_URL' is os.environ:
-    DATABASES = {
-     'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+#    DATABASES = {
+#       'default': {
+#            'ENGINE': 'django.db.backends.sqlite3',
+#            'NAME': BASE_DIR / 'db.sqlite3',
+#       }
     }
-else:
-   DATABASES = {
-      'default': {
-           'ENGINE': 'django.db.backends.sqlite3',
-           'NAME': BASE_DIR / 'db.sqlite3',
-       }
-   }
 
-
+DATABASES = {
+     'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
