@@ -2,9 +2,6 @@ from django.core.mail import send_mail
 from django.http import HttpResponse
 from .models import Order, OrderLineItem
 from home.models import Book
-from django.core.mail import send_mail
-from django.template.loader import render_to_string
-from django.conf import settings
 
 
 import json
