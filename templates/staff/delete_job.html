@@ -1,0 +1,16 @@
+{% extends 'staff/staff_settings.html' %}
+
+{% block settings_content %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h2>Delete Job</h2>
+            <p>Are you sure you want to delete the job "{{ job.title }}"?</p>
+            <form method="post" action="{% url 'delete_job' id=job.id %}">
+                {% csrf_token %}
+                <button type="submit">Delete</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -187,15 +187,6 @@ def modify_job(request, id):
     return render(request, 'staff/modify_job.html', {'job': job, 'form': form})
 
 
-def delete_job(request, id):
-    job = get_object_or_404(Careers, pk=id)
-
-    if request.method == 'POST':
-        job.delete()
-        messages.success(request, "Job deleted successfully")
-        return redirect('job_list')
-
-    return render(request, 'staff/delete_job.html', {'job': job})
 
 """
 Views for Staff settings -> Reviews 

@@ -14,7 +14,7 @@
                         <p>Salary: {% if career.salary %}${{ career.salary }}{% else %}Not specified{% endif %}</p>
                         <p>Job Type: {{ career.job_type }}</p>
                         <a href="{% url 'modify_job' id=career.id %}">Modify</a>
-                        <a href="{% url 'delete_job' id=career.id %}">Delete</a>
+                        <a href="{% url 'job_delete' id=career.id %}">Delete</a>
                     </li>
                 {% endfor %}
             </ul>
