@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /staff/
+Disallow: /bag/
+Disallow: /profile/
+Disallow: /accounts/
+Sitemap: https://jimbo-books-c1b93c9d7dac.herokuapp.com/sitemap.xml
